@@ -1,0 +1,9 @@
+/.mypy_cache
+/.vscode
+.docker_commands
+setup.cfg
+/config
+yoyo.ini
+/.sl_venv
+/models/__pycache__
+__pycache__/
