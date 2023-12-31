@@ -1,0 +1,28 @@
+.button-text-type {
+    align-items: center;
+    background-color: var(--lightprimary-color70);
+    border-radius: 8px;
+    display: flex;
+    gap: 10px;
+    height: 56px;
+    justify-content: center;
+    padding: 18px 24px;
+    position: relative;
+    width: 158px;
+  }
+  
+  .button-text-type .text-wrapper {
+    color: var(--lighttext-link-colorwhite);
+    font-family: var(--menu-menu-1-bold-font-family);
+    font-size: var(--menu-menu-1-bold-font-size);
+    font-style: var(--menu-menu-1-bold-font-style);
+    font-weight: var(--menu-menu-1-bold-font-weight);
+    letter-spacing: var(--menu-menu-1-bold-letter-spacing);
+    line-height: var(--menu-menu-1-bold-line-height);
+    margin-top: -0.5px;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  

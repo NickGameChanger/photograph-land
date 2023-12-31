@@ -1,0 +1,317 @@
+:root {
+  --body-body-1-regular-font-family: "OpenSans-Regular", Helvetica;
+  --body-body-1-regular-font-size: 22px;
+  --body-body-1-regular-font-style: normal;
+  --body-body-1-regular-font-weight: 400;
+  --body-body-1-regular-letter-spacing: 0.11px;
+  --body-body-1-regular-line-height: 125%;
+  --body-body-1-semibold-font-family: "OpenSans-SemiBold", Helvetica;
+  --body-body-1-semibold-font-size: 22px;
+  --body-body-1-semibold-font-style: normal;
+  --body-body-1-semibold-font-weight: 600;
+  --body-body-1-semibold-letter-spacing: 0.11px;
+  --body-body-1-semibold-line-height: 125%;
+  --body-body-2-regular-font-family: "OpenSans-Regular", Helvetica;
+  --body-body-2-regular-font-size: 14px;
+  --body-body-2-regular-font-style: normal;
+  --body-body-2-regular-font-weight: 400;
+  --body-body-2-regular-letter-spacing: 0.11200000166893005px;
+  --body-body-2-regular-line-height: 129.99999523162842%;
+  --body-body-2-semibold-font-family: "OpenSans-Regular", Helvetica;
+  --body-body-2-semibold-font-size: 14px;
+  --body-body-2-semibold-font-style: normal;
+  --body-body-2-semibold-font-weight: 400;
+  --body-body-2-semibold-letter-spacing: 0.11200000166893005px;
+  --body-body-2-semibold-line-height: 129.99999523162842%;
+  --captions-captions-bold-font-family: "OpenSans-Bold", Helvetica;
+  --captions-captions-bold-font-size: 12px;
+  --captions-captions-bold-font-style: normal;
+  --captions-captions-bold-font-weight: 700;
+  --captions-captions-bold-letter-spacing: 0.09600000143051148px;
+  --captions-captions-bold-line-height: 110.00000238418579%;
+  --captions-captions-regular-font-family: "OpenSans-Regular", Helvetica;
+  --captions-captions-regular-font-size: 12px;
+  --captions-captions-regular-font-style: normal;
+  --captions-captions-regular-font-weight: 400;
+  --captions-captions-regular-letter-spacing: 0.09600000143051148px;
+  --captions-captions-regular-line-height: 120.00000476837158%;
+  --display-display-bold-font-family: "OpenSans-Bold", Helvetica;
+  --display-display-bold-font-size: 64px;
+  --display-display-bold-font-style: normal;
+  --display-display-bold-font-weight: 700;
+  --display-display-bold-letter-spacing: 0.19200000762939454px;
+  --display-display-bold-line-height: 120.00000476837158%;
+  --display-display-semibold-font-family: "OpenSans-Regular", Helvetica;
+  --display-display-semibold-font-size: 64px;
+  --display-display-semibold-font-style: normal;
+  --display-display-semibold-font-weight: 400;
+  --display-display-semibold-letter-spacing: 0.19200000762939454px;
+  --display-display-semibold-line-height: 120.00000476837158%;
+  --heading-h1-bold-font-family: "OpenSans-Bold", Helvetica;
+  --heading-h1-bold-font-size: 62px;
+  --heading-h1-bold-font-style: normal;
+  --heading-h1-bold-font-weight: 700;
+  --heading-h1-bold-letter-spacing: 0.18600000739097594px;
+  --heading-h1-bold-line-height: 120.00000476837158%;
+  --heading-h1-regular-font-family: "OpenSans-Regular", Helvetica;
+  --heading-h1-regular-font-size: 62px;
+  --heading-h1-regular-font-style: normal;
+  --heading-h1-regular-font-weight: 400;
+  --heading-h1-regular-letter-spacing: 0.18600000739097594px;
+  --heading-h1-regular-line-height: 120.00000476837158%;
+  --heading-h2-bold-font-family: "OpenSans-Bold", Helvetica;
+  --heading-h2-bold-font-size: 48px;
+  --heading-h2-bold-font-style: normal;
+  --heading-h2-bold-font-weight: 700;
+  --heading-h2-bold-letter-spacing: 0.24px;
+  --heading-h2-bold-line-height: 120.00000476837158%;
+  --heading-h2-regular-font-family: "OpenSans-Regular", Helvetica;
+  --heading-h2-regular-font-size: 48px;
+  --heading-h2-regular-font-style: normal;
+  --heading-h2-regular-font-weight: 400;
+  --heading-h2-regular-letter-spacing: 0.24px;
+  --heading-h2-regular-line-height: 120.00000476837158%;
+  --heading-h3-bold-font-family: "OpenSans-Bold", Helvetica;
+  --heading-h3-bold-font-size: 39px;
+  --heading-h3-bold-font-style: normal;
+  --heading-h3-bold-font-weight: 700;
+  --heading-h3-bold-letter-spacing: 0.195px;
+  --heading-h3-bold-line-height: 120.00000476837158%;
+  --heading-h3-regular-font-family: "OpenSans-Regular", Helvetica;
+  --heading-h3-regular-font-size: 39px;
+  --heading-h3-regular-font-style: normal;
+  --heading-h3-regular-font-weight: 400;
+  --heading-h3-regular-letter-spacing: 0.195px;
+  --heading-h3-regular-line-height: 120.00000476837158%;
+  --heading-h4-bold-font-family: "OpenSans-Bold", Helvetica;
+  --heading-h4-bold-font-size: 31px;
+  --heading-h4-bold-font-style: normal;
+  --heading-h4-bold-font-weight: 700;
+  --heading-h4-bold-letter-spacing: 0.155px;
+  --heading-h4-bold-line-height: 120.00000476837158%;
+  --heading-h4-regular-font-family: "OpenSans-Regular", Helvetica;
+  --heading-h4-regular-font-size: 31px;
+  --heading-h4-regular-font-style: normal;
+  --heading-h4-regular-font-weight: 400;
+  --heading-h4-regular-letter-spacing: 0.155px;
+  --heading-h4-regular-line-height: 120.00000476837158%;
+  --heading-h5-bold-font-family: "OpenSans-Bold", Helvetica;
+  --heading-h5-bold-font-size: 24px;
+  --heading-h5-bold-font-style: normal;
+  --heading-h5-bold-font-weight: 700;
+  --heading-h5-bold-letter-spacing: 0.12px;
+  --heading-h5-bold-line-height: 120.00000476837158%;
+  --heading-h5-regular-font-family: "OpenSans-Regular", Helvetica;
+  --heading-h5-regular-font-size: 24px;
+  --heading-h5-regular-font-style: normal;
+  --heading-h5-regular-font-weight: 400;
+  --heading-h5-regular-letter-spacing: 0.12px;
+  --heading-h5-regular-line-height: 120.00000476837158%;
+  --heading-h6-bold-font-family: "OpenSans-Bold", Helvetica;
+  --heading-h6-bold-font-size: 18px;
+  --heading-h6-bold-font-style: normal;
+  --heading-h6-bold-font-weight: 700;
+  --heading-h6-bold-letter-spacing: 0.09px;
+  --heading-h6-bold-line-height: 120.00000476837158%;
+  --heading-h6-regular-font-family: "OpenSans-Regular", Helvetica;
+  --heading-h6-regular-font-size: 18px;
+  --heading-h6-regular-font-style: normal;
+  --heading-h6-regular-font-weight: 400;
+  --heading-h6-regular-letter-spacing: 0.09px;
+  --heading-h6-regular-line-height: 120.00000476837158%;
+  --headlines-headline-bold-normal-font-family: "OpenSans-Bold", Helvetica;
+  --headlines-headline-bold-normal-font-size: 16px;
+  --headlines-headline-bold-normal-font-style: normal;
+  --headlines-headline-bold-normal-font-weight: 700;
+  --headlines-headline-bold-normal-letter-spacing: 0.08px;
+  --headlines-headline-bold-normal-line-height: 120.00000476837158%;
+  --headlines-headline-bold-UPPERCASE-font-family: "OpenSans-Bold", Helvetica;
+  --headlines-headline-bold-UPPERCASE-font-size: 16px;
+  --headlines-headline-bold-UPPERCASE-font-style: normal;
+  --headlines-headline-bold-UPPERCASE-font-weight: 700;
+  --headlines-headline-bold-UPPERCASE-letter-spacing: 0.8px;
+  --headlines-headline-bold-UPPERCASE-line-height: 120.00000476837158%;
+  --headlines-headline-regular-normal-font-family: "OpenSans-Regular", Helvetica;
+  --headlines-headline-regular-normal-font-size: 16px;
+  --headlines-headline-regular-normal-font-style: normal;
+  --headlines-headline-regular-normal-font-weight: 400;
+  --headlines-headline-regular-normal-letter-spacing: 0.08px;
+  --headlines-headline-regular-normal-line-height: 120.00000476837158%;
+  --headlines-headline-regular-UPPERCASE-font-family: "OpenSans-Regular", Helvetica;
+  --headlines-headline-regular-UPPERCASE-font-size: 16px;
+  --headlines-headline-regular-UPPERCASE-font-style: normal;
+  --headlines-headline-regular-UPPERCASE-font-weight: 400;
+  --headlines-headline-regular-UPPERCASE-letter-spacing: 0.8px;
+  --headlines-headline-regular-UPPERCASE-line-height: 120.00000476837158%;
+  --lightaccent-1-color10: rgba(202, 241, 218, 1);
+  --lightaccent-1-color30: rgba(93, 239, 151, 1);
+  --lightaccent-1-color50: rgba(11, 210, 90, 1);
+  --lightaccent-1-color70: rgba(0, 168, 67, 1);
+  --lightaccent-1-color85: rgba(1, 129, 52, 1);
+  --lightbase-colorblack: rgba(0, 0, 0, 1);
+  --lightbase-colorwhite: rgba(255, 255, 255, 1);
+  --lightfills-colorbutton-fill: rgba(255, 255, 255, 1);
+  --lightfills-colordisabled: rgba(224, 224, 224, 1);
+  --lightfills-coloricon: rgba(154, 154, 176, 1);
+  --lightfills-colorimage-placeholder: rgba(226, 226, 234, 1);
+  --lightfills-colorprogress-container: rgba(226, 226, 234, 1);
+  --lightfills-colortext-field: rgba(255, 255, 255, 1);
+  --lightfills-colortext-field-2: rgba(246, 246, 247, 1);
+  --lightother-colorerror: rgba(240, 68, 97, 1);
+  --lightother-colorinfo: rgba(241, 241, 246, 1);
+  --lightother-colorsuccess: rgba(65, 218, 126, 1);
+  --lightother-colorwarning: rgba(238, 175, 34, 1);
+  --lightprimary-color10: rgba(243, 242, 241, 1);
+  --lightprimary-color30: rgba(227, 228, 223, 1);
+  --lightprimary-color50: rgba(187, 165, 145, 1);
+  --lightprimary-color70: rgba(153, 125, 100, 1);
+  --lightprimary-color85: rgba(93, 79, 66, 1);
+  --lightsecondary-color10: rgba(255, 221, 211, 1);
+  --lightsecondary-color30: rgba(255, 143, 91, 1);
+  --lightsecondary-color50: rgba(248, 99, 56, 1);
+  --lightsecondary-color70: rgba(180, 58, 5, 1);
+  --lightsecondary-color85: rgba(95, 30, 3, 1);
+  --lightseparators-colorsprimary: rgba(225, 225, 251, 1);
+  --lightseparators-colorssecondary: rgba(225, 225, 225, 1);
+  --lightsystem-backgroundprimary: rgba(255, 255, 255, 1);
+  --lightsystem-backgroundsecondary: rgba(32, 32, 32, 1);
+  --lighttext-colorbody-1: rgba(81, 81, 81, 1);
+  --lighttext-colorbody-2: rgba(154, 154, 176, 1);
+  --lighttext-colortitle: rgba(17, 20, 45, 1);
+  --lighttext-link-colororange: rgba(243, 105, 46, 1);
+  --lighttext-link-colorwhite: rgba(255, 255, 255, 1);
+  --menu-menu-1-bold-font-family: "OpenSans-Bold", Helvetica;
+  --menu-menu-1-bold-font-size: 16px;
+  --menu-menu-1-bold-font-style: normal;
+  --menu-menu-1-bold-font-weight: 700;
+  --menu-menu-1-bold-letter-spacing: 0.08px;
+  --menu-menu-1-bold-line-height: 120.00000476837158%;
+  --menu-menu-1-regular-font-family: "OpenSans-Regular", Helvetica;
+  --menu-menu-1-regular-font-size: 16px;
+  --menu-menu-1-regular-font-style: normal;
+  --menu-menu-1-regular-font-weight: 400;
+  --menu-menu-1-regular-letter-spacing: 0.08px;
+  --menu-menu-1-regular-line-height: 120.00000476837158%;
+  --menu-menu-2-bold-font-family: "OpenSans-Bold", Helvetica;
+  --menu-menu-2-bold-font-size: 14px;
+  --menu-menu-2-bold-font-style: normal;
+  --menu-menu-2-bold-font-weight: 700;
+  --menu-menu-2-bold-letter-spacing: 0.07px;
+  --menu-menu-2-bold-line-height: 120.00000476837158%;
+  --menu-menu-2-regular-font-family: "OpenSans-Regular", Helvetica;
+  --menu-menu-2-regular-font-size: 14px;
+  --menu-menu-2-regular-font-style: normal;
+  --menu-menu-2-regular-font-weight: 400;
+  --menu-menu-2-regular-letter-spacing: 0.07px;
+  --menu-menu-2-regular-line-height: 120.00000476837158%;
+  --notification-notif-bold-font-family: "OpenSans-Bold", Helvetica;
+  --notification-notif-bold-font-size: 9px;
+  --notification-notif-bold-font-style: normal;
+  --notification-notif-bold-font-weight: 700;
+  --notification-notif-bold-letter-spacing: 0.07200000107288361px;
+  --notification-notif-bold-line-height: 110.00000238418579%;
+  --notification-notif-regular-font-family: "OpenSans-Regular", Helvetica;
+  --notification-notif-regular-font-size: 9px;
+  --notification-notif-regular-font-style: normal;
+  --notification-notif-regular-font-weight: 400;
+  --notification-notif-regular-letter-spacing: 0.07200000107288361px;
+  --notification-notif-regular-line-height: 120.00000476837158%;
+  --title-title-1-bold-font-family: "OpenSans-Bold", Helvetica;
+  --title-title-1-bold-font-size: 24px;
+  --title-title-1-bold-font-style: normal;
+  --title-title-1-bold-font-weight: 700;
+  --title-title-1-bold-letter-spacing: 0.07200000286102295px;
+  --title-title-1-bold-line-height: 120.00000476837158%;
+  --title-title-1-regular-font-family: "OpenSans-Regular", Helvetica;
+  --title-title-1-regular-font-size: 24px;
+  --title-title-1-regular-font-style: normal;
+  --title-title-1-regular-font-weight: 400;
+  --title-title-1-regular-letter-spacing: 0.07200000286102295px;
+  --title-title-1-regular-line-height: 120.00000476837158%;
+
+}
+
+*,
+*::after,
+*::before {}
+
+body {
+  margin: 0;
+  font-family: 'Open Sans';
+}
+
+a {
+  text-decoration: none;
+}
+
+
+section {
+  display: flex;
+  justify-content: center;
+}
+
+section h2 {
+  color: var(--light-text-color-body-1, #515151);
+  /* Heading/H2 Regular */
+  font-family: "Open Sans";
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  /* 57.6px */
+  letter-spacing: 0.24px;
+}
+
+.intro {
+  position: fixed;
+  z-index: 4;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #161616;
+  transition: 1s;
+}
+
+.logo-header {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  transform: (-50%, -50%);
+  color: #ffffff;
+}
+
+.logo-header .logo {
+  color: var(--lightsecondary-color30);
+  font-family: 'Open Sans';
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.12px;
+  line-height: 28.8px;
+  position: relative;
+  display: inline-block;
+  height: 100%;
+}
+
+.logo-header .logo #photography {
+  color: var(--lightprimary-color50);
+  font-family: 'Open Sans';
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.07px;
+  line-height: 16.8px;
+
+}
+
+.logo.active {
+  bottom: 0;
+  opacity: 1;
+  transition: ease-in-out 0.5s;
+}
+
+.logo.fade {
+  bottom: 150px;
+  opacity: 0;
+
+  transition: ease-in-out 0.5s;
+}

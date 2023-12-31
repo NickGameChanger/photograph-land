@@ -1,0 +1,178 @@
+#portfolio {
+    background: var(--light-primary-color-10, #F3F2F1);
+}
+
+#portfolio .wrapper2 {
+    width: 1440px;
+    display: flex;
+    justify-content: center;
+}
+
+#portfolio .wrapper {
+    margin: 30px 30px 30px 30px;
+    width: 1236.154px;
+}
+
+#portfolio .wrapper .header_section {
+    top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+}
+
+.svgcomp {
+    position: relative;
+    left: -40px;
+}
+
+#portfolio .vector {
+    position: absolute;
+    top: -17px;
+    left: 0px;
+    margin: 0;
+    transform: rotate(8.108deg);
+    flex-shrink: 0;
+    overflow: visible;
+}
+
+#portfolio .group19 {
+    position: absolute;
+    top: -4px;
+    left: 5.82px;
+    overflow: visible;
+    transform: rotate(8.108deg);
+    flex-shrink: 0;
+
+}
+
+#portfolio .my_header {
+    position: relative;
+    /* left: 39px; */
+}
+
+
+#portfolio .photos_menu {
+    top: 90px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    color: var(--light-primary-color-85, #5D4F42);
+    /* Headlines/Headline Regular UPPERCASE */
+    font-family: Open Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    /* 19.2px */
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#portfolio .middle_section {
+    display: inline;
+    position: relative;
+
+    color: var(--light-secondary-color-30, #FF8F5B);
+
+    font-family: Open Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 13.62px 13.62px 13.62px;
+    border-left: 0.5px solid #f3692e;
+    border-right: 0.5px solid #f3692e;
+    border-top: 0.5px solid #f3692e;
+    border-radius: 6px 6px 0px 0px;
+}
+
+#portfolio .left_section {
+    display: inline;
+    position: relative;
+    border-bottom: 0.5px solid #f3692e;
+    padding-bottom: 13.62px;
+    padding-right: 13.62px;
+    padding-top: 13.62px;
+    padding-left: 330px;
+}
+
+#portfolio .right_section {
+    display: inline;
+    position: relative;
+    border-bottom: 0.5px solid #f3692e;
+    padding-bottom: 13.62px;
+    padding-left: 13.62px;
+    padding-top: 13.62px;
+    padding-right: 330px;
+}
+
+#portfolio .photosAlwaysHaveTheirVoiceLove {
+    top: 111.38px;
+    color: #5d4f42;
+    font-size: 24px;
+    line-height: 120%;
+    font-family: Open Sans, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+        'Liberation Sans', sans-serif;
+    letter-spacing: 0.005em;
+    position: relative;
+    left: calc(50% - -40.8086px);
+    width: 1122.1641px;
+    height: 38.0078px;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    transform: translateX(-50%);
+}
+
+
+
+#portfolio .photo_line {
+    display: inline-flex;
+    gap: 50px;
+    margin-bottom: 50px;
+    width: 1236.154px;
+    height: 545px;
+
+
+}
+
+#portfolio .vert_photo {
+    display: flex;
+    /* width: 100%;
+    /* or any custom size */
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+#portfolio #first {
+    max-height: 100%;
+    max-width: 100%;
+    margin-top: 150px;
+}
+
+#portfolio .hor_photo {
+    display: flex;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+#portfolio .img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+
+#portfolio #last {
+    margin-bottom: 20px;
+}

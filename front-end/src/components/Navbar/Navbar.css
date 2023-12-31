@@ -1,0 +1,134 @@
+.navbar {
+  display: flex;
+  position: static;
+  top: 0px;
+  align-items: center;
+  z-index: 3;
+  height: 92px;
+  top: 16.5px;
+  margin: 1em;
+
+  align-items: center;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.navbar .logo {
+  height: 60px;
+  left: 3%;
+  position: absolute;
+  top: 34px;
+  width: 190px;
+}
+
+.logo .text-wrapper {
+  color: var(--lightsecondary-color30);
+  font-family: 'Open Sans';
+  font-size: 24px;
+  font-weight: 700;
+  left: 0;
+  letter-spacing: 0.12px;
+  line-height: 28.8px;
+  position: absolute;
+  top: 0;
+}
+
+.logo .phot {
+  color: var(--lightprimary-color50);
+  font-family: 'Open Sans';
+  font-size: 14px;
+  font-weight: 700;
+  left: 0;
+  letter-spacing: 0.07px;
+  line-height: 16.8px;
+  position: absolute;
+  top: 33px;
+  width: 172px;
+}
+
+.navbar .work-btn {
+  background-color: var(--lightprimary-color50) !important;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 800;
+  font-size: 16px;
+  display: flex;
+  width: 158px;
+  height: 56px;
+  padding: 18px 24px;
+  justify-content: center;
+  gap: 10px;
+  flex-shrink: 0;
+  position: absolute;
+  right: 3%;
+  top: 38px;
+  cursor: pointer;
+}
+
+
+.navbar .navbar-2 {
+  align-items: flex-start;
+  display: inline-flex;
+  gap: 49px;
+  left: 360px;
+  position: absolute;
+  top: 48px;
+}
+
+.navbar .text-wrapper-2 {
+  color: var(--lighttext-link-colorwhite);
+  font-family: var(--heading-h5-regular-font-family);
+  font-size: var(--heading-h5-regular-font-size);
+  font-style: var(--heading-h5-regular-font-style);
+  font-weight: var(--heading-h5-regular-font-weight);
+  letter-spacing: var(--heading-h5-regular-letter-spacing);
+  line-height: var(--heading-h5-regular-line-height);
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.navbar .languagae {
+  height: 19px;
+  right: 10px;
+  position: absolute;
+  right: 6%;
+  top: 0.5px;
+  width: 57px;
+}
+
+.languagae .select {
+  height: 19px;
+  position: relative;
+  width: 61px;
+}
+
+.select .text-wrapper-3 {
+  color: var(--lightprimary-color50);
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0.08px;
+  line-height: 19.2px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  white-space: nowrap;
+}
+
+.select .text-wrapper-4 {
+  color: var(--lightprimary-color50);
+  font-family: var(--menu-menu-1-regular-font-family);
+  font-size: var(--menu-menu-1-regular-font-size);
+  font-style: var(--menu-menu-1-regular-font-style);
+  font-weight: var(--menu-menu-1-regular-font-weight);
+  left: 35px;
+  letter-spacing: var(--menu-menu-1-regular-letter-spacing);
+  line-height: var(--menu-menu-1-regular-line-height);
+  position: absolute;
+  text-align: center;
+  top: 0;
+  white-space: nowrap;
+}

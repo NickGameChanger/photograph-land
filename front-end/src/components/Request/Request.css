@@ -1,0 +1,209 @@
+#request {
+    background: rgba(187, 165, 145, 0.4);
+}
+
+#request .wrapper {
+    width: 1440px;
+    height: 800px;
+}
+
+#request .wrapper .first_block {
+    margin-top: 72px;
+    margin-bottom: 32px;
+    gap: 23px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-direction: column;
+
+}
+
+#request .wrapper .first_block p {
+    width: 915.541px;
+    color: var(--light-fills-color-text-field, #FFF);
+    text-align: center;
+    /* Body/Body 1 Regular */
+    font-family: Open Sans;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%;
+    /* 27.5px */
+    letter-spacing: 0.11px;
+}
+
+#request .wrapper .first_block .header_section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: var(--light-text-color-body-1, #515151);
+    /* Heading/H2 Regular */
+    font-family: Open Sans;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    /* 57.6px */
+    letter-spacing: 0.24px;
+
+}
+
+#request .wrapper .request_block {
+    margin-left: 167.5px;
+    margin-right: 167.5px;
+
+}
+
+
+#request .wrapper .btn {
+    border-radius: 6px;
+    background: var(--light-primary-color-70, #997D64);
+    color: #fff;
+    font-weight: 800;
+    font-size: 16px;
+    width: 158px;
+    height: 56px;
+    padding: 18px 24px;
+    display: flex;
+    justify-content: center;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+#request table {
+    column-gap: 62px;
+}
+
+#request .wrapper input {
+    flex-shrink: 0;
+    border-radius: 6px;
+    background: var(--light-system-background-primary, #FFF);
+    border: 0px solid;
+    height: 64px;
+    font-family: 'Open Sans';
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%;
+    padding: 12px 20px;
+
+}
+
+#request #name {
+    width: 438.296px;
+
+}
+
+#request #email {
+    width: 587px;
+
+}
+
+#request table tr td:empty {
+    width: 77.7px;
+}
+
+#request #empty_line1 {
+    height: 17px;
+}
+
+#request #empty_line2 {
+    height: 31px;
+}
+
+#request #first_table tr td {
+    color: var(--light-text-color-body-1, #515151);
+    text-align: left;
+    /* Body/Body 1 Semibold */
+    font-family: Open Sans;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 125%;
+    /* 27.5px */
+    letter-spacing: 0.11px;
+}
+
+#request #first_table tr th {
+    color: var(--light-text-color-body-1, #515151);
+    text-align: left;
+    /* Body/Body 1 Semibold */
+    font-family: Open Sans;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 125%;
+    /* 27.5px */
+    letter-spacing: 0.11px;
+}
+
+#request textarea {
+    width: 587px;
+    height: 185.162px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    background: var(--light-system-background-primary, #FFF);
+    border: 0px solid;
+    font-family: Open Sans;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%;
+    position: relative;
+    bottom: 280px;
+    left: 515px;
+    padding: 12px 20px;
+    ;
+}
+
+#request #empty_line3 {
+    height: 0px;
+}
+
+
+#request .wrapper input::placeholder {
+    color: var(--light-text-color-body-2, #9A9AB0);
+
+    /* Body/Body 1 Regular */
+    font-family: Open Sans;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%;
+    /* 27.5px */
+    letter-spacing: 0.11px;
+    padding-left: 16px;
+
+}
+
+#request .wrapper textarea::placeholder {
+    color: var(--light-text-color-body-2, #9A9AB0);
+
+    /* Body/Body 1 Regular */
+    font-family: Open Sans;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%;
+    /* 27.5px */
+    letter-spacing: 0.11px;
+}
+
+#second_table {
+    margin-bottom: 87px;
+}
+
+#second_table tr td {
+    color: var(--light-text-color-body-1, #515151);
+
+    /* Body/Body 1 Regular */
+    font-family: Open Sans;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%;
+    /* 27.5px */
+    letter-spacing: 0.11px;
+}

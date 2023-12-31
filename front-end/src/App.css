@@ -1,0 +1,53 @@
+.intro {
+    position: fixed;
+    z-index: 4;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #161616;
+    transition: 1s;
+}
+
+.logo-header {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    transform: (-50%, -50%);
+    color: #ffffff;
+}
+
+.logo-header .logo {
+    color: var(--lightsecondary-color30);
+    font-family: 'Open Sans';
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0.12px;
+    line-height: 28.8px;
+    position: relative;
+    display: inline-block;
+    height: 100%;
+}
+
+.logo-header .logo #photography {
+    color: var(--lightprimary-color50);
+    font-family: 'Open Sans';
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.07px;
+    line-height: 16.8px;
+
+}
+
+.logo.active {
+    bottom: 0;
+    opacity: 1;
+    transition: ease-in-out 0.5s;
+}
+
+.logo.fade {
+    bottom: 150px;
+    opacity: 0;
+
+    transition: ease-in-out 0.5s;
+}
