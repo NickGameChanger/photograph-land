@@ -7,8 +7,8 @@ import { portrait_alina1, portrait_alina2, portrait_alina3, portrait_alina4, abo
 const About = ({ about_ref, request_ref }) => {
   return (
     <section id='about'>
-      <div className='wrapper2'>
-        <div className='wrapper'>
+      <div className='wrapper'>
+        <div className='wrapper2'>
           <div className='first_block'>
             <img src={aboutMain} id='main_photo' alt='main_photo' />
             <div className='about_section'>

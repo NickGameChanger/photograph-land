@@ -5,7 +5,7 @@ import { footer_alina } from '../../assets';
 
 const Footer = forwardRef((props, ref) => {
   return (
-    <section id='footer' ref={ref}>
+    <footer id='footer' ref={ref}>
       <div className='wrapper'>
         <img src={footer_alina} id='footer_alina' alt='footer_alina' />
 
@@ -49,7 +49,7 @@ const Footer = forwardRef((props, ref) => {
           <div className='nav_item' id='contact_back'>Contact</div>
         </div>
       </div>
-    </section>
+    </footer>
   )
 })
 

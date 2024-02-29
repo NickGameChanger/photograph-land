@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-*&j43ug++sqq@&7%-0-^5=mf9i_^jpkqf+_36o7ms#ll7i^*(5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['4a49-87-116-162-139.ngrok-free.app', 'https://gromovaa-photography.netlify.app', '127.0.0.1']
 
 BOT_TOKEN = '6519972699:AAGaXEUZ8VamvNa1Ynsr-2ILxfgKI8D6ePY'
 BOT_URL = 'https://api.teelgram.org/bot%s/'%BOT_TOKEN
@@ -108,7 +108,10 @@ AUTH_PASSWORD_VALIDATORS = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5173",  # Adjust this to the origin of your React app
-    "http://localhost:5173",  # Another example
+    "http://localhost:5173",
+    "https://4a49-87-116-162-139.ngrok-free.app",
+    "https://gromovaa-photography.netlify.app",
+    # Another example
 ]
 
 

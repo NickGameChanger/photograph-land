@@ -19,20 +19,28 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    margin-bottom: 30px;
 
 }
 
-#approach table {
-    column-gap: 62px;
+#approach .steps {
+    display: flex;
+    column-gap: 80px;
+    flex-direction: row;
+    max-width: 1140px;
+    height: auto;
+    justify-content: center;
+    object-fit: contain;
 }
 
-#approach table tr td:empty {
-    width: 62px;
+
+#approach .steps .container {
+    object-fit: contain;
+    width: 25%;
 }
 
-#approach tr td {
-    width: 260px;
-    height: 129.055px;
+#approach .steps .container .cell {
+    height: auto;
 
     padding: 15.42px 0;
     color: var(--light-primary-color-85, #5D4F42);
@@ -46,7 +54,8 @@
     letter-spacing: 0.09px;
 }
 
-#approach tr th {
+#approach .steps .container .header {
+
     text-align: center;
     color: var(--light-primary-color-85, #5D4F42);
     font-family: Open Sans;
@@ -57,10 +66,12 @@
     letter-spacing: 0.155px;
 }
 
+
+
 #approach .wrapper .draw_line {
     margin-top: 46.81px;
     margin-bottom: 32.87px;
-    gap: 260px;
+    gap: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -95,4 +106,117 @@
     position: absolute;
     left: 79.13px;
     top: 31px;
+}
+
+
+
+@media (max-width: 1140px) {
+    #approach .wrapper2 {
+        width: 1140px;
+        display: flex;
+        justify-content: center;
+    }
+
+    #approach .wrapper {
+        margin: 30px 30px 30px 30px;
+        width: 1040px;
+    }
+
+
+
+    #approach .wrapper .line {
+        width: 106px;
+        left: 79.13px;
+    }
+
+    #approach .steps {
+        column-gap: 40px;
+
+    }
+
+    #approach .steps .container {
+
+        width: 20%;
+    }
+
+    #approach .wrapper .draw_line {
+        margin-top: 46.81px;
+        margin-bottom: 32.87px;
+        gap: 130px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+}
+
+
+@media (max-width: 720px) {
+    #approach .wrapper2 {
+        width: 100%;
+        height: auto;
+    }
+
+    #approach .wrapper {
+        width: 100%;
+        height: auto;
+        margin: 10px 10px 10px 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    #approach .wrapper .draw_line {
+        margin-top: 20px;
+        margin-bottom: 0px;
+        gap: 120px;
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        left: 10px;
+    }
+
+    #approach .steps .container .header {
+        font-size: 18px;
+    }
+
+    #approach .steps .container .cell {
+        font-size: 14px;
+        padding: 8px 0;
+    }
+
+    #approach .steps .container {
+        width: 100%;
+        object-fit: contain;
+
+    }
+
+    #approach .steps {
+        position: relative;
+        left: 30px;
+        width: 40%;
+        display: flex;
+        row-gap: 20px;
+        align-items: center;
+        max-width: 320px;
+        flex-direction: column;
+    }
+
+    #approach .wrapper .line {
+        width: 0.5px;
+        height: 130px;
+        background: #F3692E;
+        position: absolute;
+        left: 30px;
+        top: 75px;
+    }
+
+    .stepsContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-evenly;
+    }
+
 }

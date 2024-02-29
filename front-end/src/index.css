@@ -250,6 +250,10 @@ section {
   justify-content: center;
 }
 
+.wrapper {
+  max-width: 1140px;
+}
+
 section h2 {
   color: var(--light-text-color-body-1, #515151);
   /* Heading/H2 Regular */
@@ -314,4 +318,30 @@ section h2 {
   opacity: 0;
 
   transition: ease-in-out 0.5s;
+}
+
+@media (max-width: 1040px) {
+
+  .wrapper {
+    max-width: 900px;
+  }
+
+  .wrapper-2 {
+    max-width: 900px;
+  }
+}
+
+@media (max-width: 720px) {
+  .wrapper {
+    padding: 0 0px;
+  }
+
+  section h2 {
+    font-size: 24px;
+  }
+
+  section h2::after {
+    width: 50px;
+    bottom: 0;
+  }
 }

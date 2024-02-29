@@ -16,3 +16,17 @@ header {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
+
+@media (max-width: 720px) {
+
+    header {
+        background: url('../../assets/mob_background.jpeg');
+        width: auto;
+        height: 100vw;
+        min-height: 100vh;
+        min-width: auto;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: left;
+    }
+}

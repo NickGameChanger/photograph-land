@@ -20,6 +20,7 @@ BOT_CHAT_ID = 629958561
 #         return super().default(obj)
 
 def bot(message: str, chat_id: int=BOT_CHAT_ID, token: str = BOT_TOKEN) -> None:
+    -
     bot = telegram.Bot(token=token)
     print(bot.send_message(chat_id=chat_id, text=message, parse_mode=telegram.ParseMode.HTML))
 
@@ -46,7 +47,6 @@ def send_request(request):
         message += '👩‍❤️‍👨Love story\n'
     if is_family:
         message += '👨‍👩‍👦‍👦Family vibe'
-
     bot(message)
     if True:
         return Response(status=status.HTTP_201_CREATED)

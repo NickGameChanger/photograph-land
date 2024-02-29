@@ -19,59 +19,58 @@ const Approach = forwardRef((props, ref) => {
             </div>
             <h2>How I work with you</h2>
           </div>
-          <div className='draw_line'>
+          <div className='stepsContainer'>
+            <div className='draw_line'>
+              <div className='circle' id='1circle'>
+                <svg xmlns="http://www.w3.org/2000/svg" width="63" height="63" viewBox="0 0 63 63" fill="none">
+                  <circle cx="31.7109" cy="31.8105" r="30.5" fill="white" stroke="#F3692E" />
+                </svg>
+                <div className='number' id='1number'>1</div>
+                <div className='line' id='1line'></div>
+              </div>
 
-            <div className='circle' id='1circle'>
-              <svg xmlns="http://www.w3.org/2000/svg" width="63" height="63" viewBox="0 0 63 63" fill="none">
-                <circle cx="31.7109" cy="31.8105" r="30.5" fill="white" stroke="#F3692E" />
-              </svg>
-              <div className='number' id='1number'>1</div>
-              <div className='line' id='1line'></div>
+              <div className='circle' id='2circle'>
+                <svg xmlns="http://www.w3.org/2000/svg" width="63" height="63" viewBox="0 0 63 63" fill="none">
+                  <circle cx="31.7109" cy="31.8105" r="30.5" fill="white" stroke="#F3692E" />
+                </svg>
+                <div className='number' id='2number'>2</div>
+                <div className='line' id='2line'></div>
+              </div>
+              <div className='circle' id='3circle'>
+                <svg xmlns="http://www.w3.org/2000/svg" width="63" height="63" viewBox="0 0 63 63" fill="none">
+                  <circle cx="31.7109" cy="31.8105" r="30.5" fill="white" stroke="#F3692E" />
+                </svg>
+                <div className='number' id='3number'>3</div>
+                <div className='line' id='3line'></div>
+              </div>
+              <div className='circle' id='4circle'>
+                <svg xmlns="http://www.w3.org/2000/svg" width="63" height="63" viewBox="0 0 63 63" fill="none">
+                  <circle cx="31.7109" cy="31.8105" r="30.5" fill="white" stroke="#F3692E" />
+                </svg>
+                <div className='number' id='4number'>4</div>
+              </div>
             </div>
 
-            <div className='circle' id='2circle'>
-              <svg xmlns="http://www.w3.org/2000/svg" width="63" height="63" viewBox="0 0 63 63" fill="none">
-                <circle cx="31.7109" cy="31.8105" r="30.5" fill="white" stroke="#F3692E" />
-              </svg>
-              <div className='number' id='2number'>2</div>
-              <div className='line' id='2line'></div>
-            </div>
-            <div className='circle' id='3circle'>
-              <svg xmlns="http://www.w3.org/2000/svg" width="63" height="63" viewBox="0 0 63 63" fill="none">
-                <circle cx="31.7109" cy="31.8105" r="30.5" fill="white" stroke="#F3692E" />
-              </svg>
-              <div className='number' id='3number'>3</div>
-              <div className='line' id='3line'></div>
-            </div>
-            <div className='circle' id='4circle'>
-              <svg xmlns="http://www.w3.org/2000/svg" width="63" height="63" viewBox="0 0 63 63" fill="none">
-                <circle cx="31.7109" cy="31.8105" r="30.5" fill="white" stroke="#F3692E" />
-              </svg>
-              <div className='number' id='4number'>4</div>
+            <div className='steps'>
+              <div className="container">
+                <div className="header">Talk</div>
+                <div className="cell">The key is to build a connection. I want to know your needs to make the best experience. We talk, and then you can decide.</div>
+              </div>
+              <div className="container">
+                <div className="header">Shoot</div>
+                <div className="cell">We take a lot of photos, from which you get 100-150 with color and light correction, as well as 15-20 photos with detailed retouching</div>
+              </div>
+              <div className="container">
+                <div className="header">Editing</div>
+                <div className="cell">I edit photos by applying neat and unnoticeable retouching, and only on those photos that you pre-select. My crucial work principle – you get your photos in 2 weeks</div>
+              </div>
+              <div className="container">
+                <div className="header">Delivery</div>
+                <div className="cell">You can get your photos using a link I send you. I can give you photo sources only if we have an agreement before a session and you have a single color on Instagram</div>
+              </div>
             </div>
           </div>
 
-
-          <table>
-            <tr>
-              <th>Talk</th>
-              <th></th>
-              <th>Shoot</th>
-              <th></th>
-              <th>Editing</th>
-              <th></th>
-              <th>Delivery</th>
-            </tr>
-            <tr>
-              <td>The key is to build a connection. I want to know your needs to make the best experience. We talk, and then you can decide.</td>
-              <td></td>
-              <td> We take a lot of photos, from which you get 100-150 with color and light correction, as well as 15-20 photos with detailed retouching</td>
-              <td></td>
-              <td>I edit photos by applying neat and unnoticeable retouching, and only on those photos that you pre-select. My crucial work principle – you get your photos in 2 weeks</td>
-              <td></td>
-              <td>You can get your photos using a link I send you. I can give you photo sources only if we have an agreement before a session and you have a single color on Instagram</td>
-            </tr>
-          </table>
         </div>
       </div>
     </section>

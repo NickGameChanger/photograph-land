@@ -1,8 +1,10 @@
-#footer {
+footer {
     background: #BBA591;
+    display: flex;
+    justify-content: center;
 }
 
-#footer .wrapper {
+footer .wrapper {
     background: #BBA591;
     width: 1440px;
     height: 476px;
@@ -11,9 +13,7 @@
     align-items: center;
 }
 
-#footer .wrapper img {
-    margin-top: 59px;
-    margin-left: 104px;
+footer .wrapper img {
     border: 1px solid rgba(255, 255, 255, 0.80);
     width: 360px;
     height: 360px;
@@ -22,7 +22,14 @@
 
 }
 
-#footer .wrapper .first_block .sign {
+footer .wrapper .first_block {
+    padding: 76px 0;
+    height: 100%;
+    position: relative;
+
+}
+
+footer .wrapper .first_block .sign {
     color: var(--light-base-color-white, #FFF);
     font-family: Oooh Baby;
     font-size: 46px;
@@ -31,18 +38,17 @@
     line-height: 120%;
     /* 55.2px */
     letter-spacing: 0.23px;
-    margin-top: 76px;
     margin-bottom: 20px;
 }
 
-#footer .wrapper .first_block .media_line {
+footer .wrapper .first_block .media_line {
     gap: 8px;
     display: inline-flex;
-    margin-bottom: 171px;
     cursor: pointer;
+
 }
 
-#footer .wrapper .first_block p {
+footer .wrapper .first_block p {
     color: var(--light-text-color-title, #11142D);
 
     /* Headlines/Headline Regular Normal */
@@ -53,11 +59,14 @@
     line-height: 120%;
     /* 19.2px */
     letter-spacing: 0.08px;
+    position: absolute;
+    bottom: 20px;
+    white-space: nowrap
 }
 
-#footer .wrapper .navigation_menu {
+footer .wrapper .navigation_menu {
 
-    right: 104px;
+    right: 30px;
     margin-left: auto;
     position: relative;
     display: inline-flex;
@@ -67,7 +76,7 @@
     cursor: pointer;
 }
 
-#footer .wrapper .navigation_menu .nav_item {
+footer .wrapper .navigation_menu .nav_item {
     color: var(--light-base-color-white, #FFF);
     /* Heading/H6 Regular */
     font-family: Open Sans;
@@ -77,4 +86,31 @@
     line-height: 120%;
     /* 21.6px */
     letter-spacing: 0.09px;
+}
+
+@media (max-width:720px) {
+    footer .wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        margin-top: 35px;
+
+    }
+
+    footer .wrapper img {
+        margin: 0;
+        width: 80%;
+        height: auto;
+    }
+
+
+    footer .wrapper .navigation_menu {
+        display: none;
+    }
+
+    footer .wrapper .first_block {
+        padding-top: 40px;
+    }
 }
