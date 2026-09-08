@@ -59,11 +59,11 @@ const Request = forwardRef((props, ref) => {
         <div className='first_block'>
           <div className='header_section'>
             <svg xmlns="http://www.w3.org/2000/svg" width="42" height="43" viewBox="0 0 42 43" fill="none">
-              <path d="M6.73881 32.1315L12.1621 32.9175L34.9297 15.9133L30.2921 9.70397L7.52455 26.7081L6.73881 32.1315Z" stroke="#515151" strokeWidth="2" strokeLinejoin="round" />
-              <path d="M24.084 14.3418L32.7215 20.5512" stroke="#515151" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              <rect x="18.4219" y="31.3848" width="2.90137" height="2.90137" transform="rotate(8.24544 18.4219 31.3848)" fill="#515151" />
-              <rect x="22.3799" y="31.959" width="2.90137" height="2.90137" transform="rotate(8.24544 22.3799 31.959)" fill="#515151" />
-              <rect x="26.3389" y="32.5312" width="2.90137" height="2.90137" transform="rotate(8.24544 26.3389 32.5312)" fill="#515151" />
+              <path d="M6.73881 32.1315L12.1621 32.9175L34.9297 15.9133L30.2921 9.70397L7.52455 26.7081L6.73881 32.1315Z" stroke="#F2EDE6" strokeWidth="2" strokeLinejoin="round" />
+              <path d="M24.084 14.3418L32.7215 20.5512" stroke="#F2EDE6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <rect x="18.4219" y="31.3848" width="2.90137" height="2.90137" transform="rotate(8.24544 18.4219 31.3848)" fill="#F2EDE6" />
+              <rect x="22.3799" y="31.959" width="2.90137" height="2.90137" transform="rotate(8.24544 22.3799 31.959)" fill="#F2EDE6" />
+              <rect x="26.3389" y="32.5312" width="2.90137" height="2.90137" transform="rotate(8.24544 26.3389 32.5312)" fill="#F2EDE6" />
             </svg>
             <h2>Let me tell your story</h2>
           </div>
@@ -81,11 +81,11 @@ const Request = forwardRef((props, ref) => {
               <div className='session_type'>
                 <Checkbox {...label} defaultChecked name="isWedding" checked={formData.isWedding} onChange={handleCheckboxChange} sx={
                   {
-                    color: '#FFF',
+                    color: '#F2EDE6',
                     '&.Mui-checked': {
-                      color: '#BBA591',
+                      color: '#A9504C',
                     },
-                    '& .MuiSvgIcon-root': { fontSize: 32 }
+                    '& .MuiSvgIcon-root': { fontSize: 24 }
                   }
                 } />
                 <div className='checkbox_name'>Wedding session</div>
@@ -94,11 +94,11 @@ const Request = forwardRef((props, ref) => {
               <div className='session_type'>
                 <Checkbox {...label} name="isLoveStory" checked={formData.isLoveStory} onChange={handleCheckboxChange} sx={
                   {
-                    color: '#FFF',
+                    color: '#F2EDE6',
                     '&.Mui-checked': {
-                      color: '#BBA591',
+                      color: '#A9504C',
                     },
-                    '& .MuiSvgIcon-root': { fontSize: 32 }
+                    '& .MuiSvgIcon-root': { fontSize: 24 }
                   }
                 } />
                 <div className='checkbox_name'>Love story</div>
@@ -107,11 +107,11 @@ const Request = forwardRef((props, ref) => {
               <div className='session_type'>
                 <Checkbox {...label} name="isFamily" checked={formData.isFamily} onChange={handleCheckboxChange} sx={
                   {
-                    color: '#FFF',
+                    color: '#F2EDE6',
                     '&.Mui-checked': {
-                      color: '#BBA591',
+                      color: '#A9504C',
                     },
-                    '& .MuiSvgIcon-root': { fontSize: 32 }
+                    '& .MuiSvgIcon-root': { fontSize: 24 }
                   }
                 } />
                 <div className='checkbox_name'>Family vibe</div>

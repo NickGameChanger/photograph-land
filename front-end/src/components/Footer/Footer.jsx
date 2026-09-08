@@ -10,7 +10,7 @@ const Footer = forwardRef((props, ref) => {
         <img src={footer_alina} id='footer_alina' alt='footer_alina' />
 
         <div className='first_block'>
-          <div className='sign'>Alina Gromova</div>
+          <div className='sign'>linanoon</div>
           <div className='media_line'>
             <div>
               <a href='https://wa.me/79151803999'>
@@ -38,14 +38,16 @@ const Footer = forwardRef((props, ref) => {
               </a>
             </div>
           </div>
-          <p>© 2023 Alina Gromova. All rights reserved.</p>
+          <p>© 2026 linanoon. All rights reserved.</p>
 
         </div>
         <div className='navigation_menu'>
           <div className='nav_item' id='home_back'>Home</div>
           <div className='nav_item' id='portfolio_back'>Portfolio</div>
           <div className='nav_item' id='approach_back'>Approach</div>
+          <div className='nav_item' id='pricing_back'>Price</div>
           <div className='nav_item' id='about_back'>About</div>
+          <div className='nav_item' id='reviews_back'>Reviews</div>
           <div className='nav_item' id='contact_back'>Contact</div>
         </div>
       </div>

@@ -11,80 +11,112 @@
 }
 
 .navbar .logo {
-  height: 60px;
+  height: 68px;
   left: 3%;
   position: absolute;
-  top: 34px;
-  width: 190px;
+  top: 24px;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .logo .text-wrapper {
-  color: var(--lightsecondary-color30);
-  font-family: 'Open Sans';
-  font-size: 24px;
-  font-weight: 700;
-  left: 0;
-  letter-spacing: 0.12px;
-  line-height: 28.8px;
-  position: absolute;
-  top: 0;
+  color: #FFFFFF;
+  font-family: 'Alex Brush', cursive;
+  font-size: 40px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  line-height: 44px;
+  position: relative;
+  transform: skewX(-12deg) scaleX(1.25);
+  transform-origin: center;
+  display: inline-block;
 }
 
 .logo .phot {
-  color: var(--lightprimary-color50);
-  font-family: 'Open Sans';
-  font-size: 14px;
-  font-weight: 700;
-  left: 0;
-  letter-spacing: 0.07px;
+  color: #FFFFFF;
+  font-family: 'Poppins', Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  text-transform: lowercase;
+  letter-spacing: 1.5px;
   line-height: 16.8px;
-  position: absolute;
-  top: 33px;
-  width: 172px;
+  position: relative;
+  margin-top: -2px;
+  width: fit-content;
 }
 
 .navbar .work-btn {
-  background-color: var(--lightprimary-color50) !important;
-  border-radius: 10px;
-  color: #fff;
-  font-weight: 800;
-  font-size: 16px;
+  background-color: transparent;
+  border-radius: 8px;
+  color: #FFFFFF;
+  font-family: 'Poppins', Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
   display: flex;
-  width: 158px;
-  height: 56px;
-  padding: 18px 24px;
+  width: 130px;
+  height: 42px;
+  padding: 12px 18px;
   justify-content: center;
+  align-items: center;
   gap: 10px;
   flex-shrink: 0;
   position: absolute;
   right: 3%;
-  top: 38px;
+  top: 37px;
   cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.navbar .work-btn:hover {
+  background-color: #FFFFFF;
+  color: #121212;
 }
 
 
 .navbar .navbar-2 {
-  align-items: flex-start;
+  align-items: center;
   display: inline-flex;
-  gap: 49px;
-  left: 360px;
+  gap: 34px;
+  right: calc(3% + 200px);
   position: absolute;
-  top: 48px;
+  top: 50px;
 }
 
 .navbar .text-wrapper-2 {
   color: var(--lighttext-link-colorwhite);
-  font-family: var(--heading-h5-regular-font-family);
-  font-size: var(--heading-h5-regular-font-size);
-  font-style: var(--heading-h5-regular-font-style);
-  font-weight: var(--heading-h5-regular-font-weight);
-  letter-spacing: var(--heading-h5-regular-letter-spacing);
-  line-height: var(--heading-h5-regular-line-height);
+  font-family: 'Poppins', Helvetica, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 120%;
   margin-top: -1px;
   position: relative;
   white-space: nowrap;
   width: fit-content;
   cursor: pointer;
+}
+
+.navbar .text-wrapper-2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s ease;
+}
+
+.navbar .text-wrapper-2:hover::after {
+  transform: scaleX(1);
 }
 
 .navbar .languagae {
@@ -104,9 +136,9 @@
 
 .select .text-wrapper-3 {
   color: var(--lightprimary-color50);
-  font-family: "Open Sans-Regular", Helvetica;
+  font-family: "Poppins", Helvetica;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 300;
   left: 0;
   letter-spacing: 0.08px;
   line-height: 19.2px;
@@ -158,7 +190,7 @@
     display: flex;
     position: fixed;
     z-index: 600;
-    background: var(--dark-color);
+    background: #0D0D0D;
     left: 0;
     right: 0;
     padding: 60px 32px;

@@ -11,10 +11,9 @@ const LoadAnimation = () => {
     <div className='preloader'>
       <div className="texts-container">
 
-        <span className='name'>Alina</span>
-        <span className='name'>Gromova</span>
+        <span className="name-group"><span className='name'>lina</span><span className='name'>noon</span></span>
         <div className="break"></div>
-        <span className="photog">PHOTOGRAPHY</span>
+        <span className="photog">photography</span>
       </div>
     </div >
   )

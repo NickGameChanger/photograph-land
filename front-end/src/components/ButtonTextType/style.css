@@ -1,6 +1,6 @@
 .button-text-type {
     align-items: center;
-    background-color: var(--lightprimary-color70);
+    background-color: var(--lightsecondary-color50);
     border-radius: 8px;
     display: flex;
     gap: 10px;

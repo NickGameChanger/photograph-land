@@ -12,7 +12,7 @@ const About_ref = forwardRef((props, ref) => {
     };
     return (
         <div className='last_line'>
-            <div className='sign'>Alina Gromova</div>
+            <div className='sign'>linanoon</div>
             <div onClick={() => scrollToSection(ref)} className="work-btn">Let’s talk</div>
         </div>
     )
