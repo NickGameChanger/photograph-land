@@ -1,0 +1,15 @@
+# Netlify: сайт лежит в front-end, собирается Vite, функции — в front-end/netlify/functions
+[build]
+  base = "front-end"
+  command = "npm run build"
+  publish = "dist"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+# кэш собранных ассетов (в именах файлов есть хэш, их можно кэшировать надолго)
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

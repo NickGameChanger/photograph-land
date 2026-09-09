@@ -27,13 +27,14 @@ const Request = forwardRef((props, ref) => {
 
     const { name, email, message, sessionType } = formData;
     const typeLabel = (SESSION_TYPES.find((t) => t.value === sessionType) || {}).label || '—';
-    const text = `📸Новая заявка на фотосессию от <b>${name}</b> \nemail: ${email}\nТип съёмки: ${typeLabel}\nидеи клиента: ${message}`;
 
     try {
-      const response = await fetch('https://api.telegram.org/bot6519972699:AAGaXEUZ8VamvNa1Ynsr-2ILxfgKI8D6ePY/sendMessage', {
+      // отправка идёт через серверную функцию (netlify/functions/send.js),
+      // токен бота в браузер не попадает
+      const response = await fetch('/api/send', {
         method: 'POST',
-        body: JSON.stringify({ chat_id: 333260928, text, parse_mode: 'HTML' }),
         headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message, sessionType: typeLabel }),
       });
       if (!response.ok) throw new Error('telegram');
       setStatus('sent');
