@@ -213,7 +213,7 @@
     /* лента выходит за боковые отступы, чтобы следующий кадр выглядывал у самого края */
     #portfolio .strip {
         display: flex;
-        column-gap: 10px;
+        column-gap: 22px;
         overflow-x: auto;
         overflow-y: hidden;
         scroll-snap-type: x mandatory;
@@ -230,7 +230,7 @@
     }
 
     #portfolio .strip_cell {
-        flex: 0 0 82%;
+        flex: 0 0 78%;
         aspect-ratio: 4 / 5;
         scroll-snap-align: start;
         overflow: hidden;
