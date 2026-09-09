@@ -162,3 +162,44 @@
         line-height: 155%;
     }
 }
+
+@media (max-width: 720px) {
+    #approach .wrapper {
+        margin: 8px 18px 16px;
+    }
+
+    #approach .steps {
+        gap: 22px;
+        margin-top: 18px;
+    }
+
+    #approach .steps::before {
+        top: 19px;
+        bottom: 19px;
+        left: 18.75px;
+    }
+
+    #approach .step {
+        grid-template-columns: 38px 1fr;
+        column-gap: 14px;
+    }
+
+    #approach .circle {
+        width: 38px;
+        height: 38px;
+        font-size: 17px;
+    }
+
+    #approach .step_body {
+        padding-top: 6px;
+    }
+
+    #approach .header {
+        font-size: 17px;
+    }
+
+    #approach .cell {
+        font-size: 13px;
+        padding-top: 6px;
+    }
+}

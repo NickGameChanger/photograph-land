@@ -114,3 +114,40 @@ footer .footer_bottom {
         margin-top: 36px;
     }
 }
+
+@media (max-width: 720px) {
+    footer .wrapper {
+        padding: 40px 18px 22px;
+    }
+
+    footer .footer_cols {
+        gap: 28px;
+    }
+
+    footer .sign {
+        font-size: 30px;
+    }
+
+    footer .footer_about {
+        font-size: 13px;
+        margin-top: 14px;
+    }
+
+    footer .footer_col_title {
+        font-size: 10px;
+        margin-bottom: 12px;
+    }
+
+    footer .footer_list {
+        gap: 9px;
+    }
+
+    footer .footer_link {
+        font-size: 13px;
+    }
+
+    footer .footer_bottom {
+        margin-top: 28px;
+        font-size: 11px;
+    }
+}

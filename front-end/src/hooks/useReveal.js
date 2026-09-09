@@ -25,6 +25,20 @@ export default function useReveal() {
     }, { rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
 
     nodes.forEach((n) => io.observe(n));
-    return () => io.disconnect();
+
+    // страховка: если наблюдатель по какой-то причине не сработал
+    // (встроенный браузер, свёрнутая вкладка), то, что уже на экране,
+    // показываем принудительно — контент не должен остаться невидимым
+    const fallback = setTimeout(() => {
+      const limit = window.innerHeight * 1.1;
+      nodes.forEach((n) => {
+        if (n.getBoundingClientRect().top < limit) n.classList.add('is-visible');
+      });
+    }, 1500);
+
+    return () => {
+      io.disconnect();
+      clearTimeout(fallback);
+    };
   }, []);
 }

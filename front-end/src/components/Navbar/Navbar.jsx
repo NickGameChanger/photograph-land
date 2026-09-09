@@ -5,7 +5,7 @@ import "./Navbar.css"
 export const Navbar = ({ about_ref, portfolio_ref, approach_ref, pricing_ref, reviews_ref, contact_ref, request_ref }) => {
   const scrollToSection = (elementRef) => {
     window.scrollTo({
-      top: Math.max(elementRef.current.offsetTop - 84, 0),
+      top: Math.max(elementRef.current.offsetTop - (window.innerWidth <= 720 ? 0 : 84), 0),
       behavior: 'smooth'
     });
   };

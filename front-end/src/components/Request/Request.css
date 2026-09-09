@@ -295,3 +295,77 @@
         gap: 12px;
     }
 }
+
+@media (max-width: 720px) {
+    #request .wrapper {
+        padding: 40px 18px 48px;
+        gap: 24px;
+    }
+
+    #request .eyebrow {
+        font-size: 10px;
+        margin-bottom: 10px;
+    }
+
+    #request h2 {
+        font-size: 22px;
+        margin-bottom: 12px;
+    }
+
+    #request .request_lead {
+        font-size: 13px;
+        margin-bottom: 18px;
+    }
+
+    #request .request_facts {
+        gap: 8px;
+        margin-bottom: 22px;
+    }
+
+    #request .request_facts li,
+    #request .request_alt {
+        font-size: 13px;
+    }
+
+    #request .request_block {
+        padding: 18px 16px;
+    }
+
+    #request form {
+        gap: 16px;
+    }
+
+    #request .field_name {
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
+
+    /* 16px — иначе iPhone приближает страницу при фокусе на поле */
+    #request input,
+    #request textarea {
+        font-size: 16px;
+        padding: 11px 14px;
+    }
+
+    #request input {
+        height: 46px;
+    }
+
+    #request textarea {
+        min-height: 100px;
+    }
+
+    #request .type_pills .pill {
+        font-size: 11px;
+        letter-spacing: 1px;
+        padding: 8px 13px;
+    }
+
+    #request .form_hint {
+        font-size: 11px;
+    }
+
+    #request .request_done_title {
+        font-size: 24px;
+    }
+}

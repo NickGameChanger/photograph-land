@@ -189,3 +189,63 @@
         margin-top: 40px;
     }
 }
+
+@media (max-width: 720px) {
+    #pricing .wrapper {
+        margin: 40px auto;
+        padding: 0 18px;
+    }
+
+    #pricing .header_section {
+        gap: 12px;
+        margin-bottom: 28px;
+    }
+
+    #pricing .eyebrow {
+        font-size: 10px;
+        margin-bottom: 8px;
+    }
+
+    #pricing .header_right p {
+        font-size: 13px;
+    }
+
+    #pricing .plans_grid {
+        gap: 36px;
+    }
+
+    #pricing .plan_photo {
+        height: 180px;
+        margin-bottom: 18px;
+    }
+
+    #pricing .plan_package_label {
+        font-size: 10px;
+        margin-bottom: 6px;
+    }
+
+    #pricing .plan_title {
+        font-size: 21px;
+        margin-bottom: 6px;
+    }
+
+    #pricing .plan_subtitle {
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+
+    #pricing .plan_features {
+        margin-bottom: 18px;
+    }
+
+    #pricing .plan_features li {
+        font-size: 13px;
+        line-height: 175%;
+    }
+
+    #pricing .pricing_note {
+        margin-top: 32px;
+        padding-top: 20px;
+        font-size: 13px;
+    }
+}

@@ -119,3 +119,37 @@
         margin-bottom: 14px;
     }
 }
+
+@media (max-width: 720px) {
+    #reviews .wrapper {
+        padding: 0 18px;
+    }
+
+    #reviews .header_section {
+        margin-bottom: 24px;
+    }
+
+    #reviews .quote_mark {
+        font-size: 34px;
+        margin-bottom: 10px;
+    }
+
+    #reviews .review_text {
+        font-size: 17px;
+        margin-bottom: 16px;
+    }
+
+    #reviews .review_name {
+        font-size: 10px;
+        letter-spacing: 1.6px;
+    }
+
+    #reviews .review_nav {
+        margin-top: 24px;
+    }
+
+    #reviews .review_nav .nav_arrow {
+        width: 32px;
+        height: 32px;
+    }
+}

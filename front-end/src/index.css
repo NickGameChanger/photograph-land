@@ -426,3 +426,23 @@ section h2 {
     transition: none;
   }
 }
+
+/* ===== мобильная шкала: всё чуть мельче, чем на десктопе ===== */
+@media (max-width: 720px) {
+  :root {
+    --btn-padding: 11px 20px;
+    --btn-font-size: 11px;
+    --btn-letter-spacing: 1.2px;
+  }
+
+  section h2 {
+    font-size: 22px;
+  }
+
+  /* шапка на телефоне не закреплена — якоря без поправки на неё */
+  section,
+  header,
+  footer {
+    scroll-margin-top: 0;
+  }
+}

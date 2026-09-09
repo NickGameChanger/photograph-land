@@ -275,3 +275,40 @@
     text-decoration: none;
   }
 }
+
+@media (max-width: 720px) {
+  /* на телефоне панель лежит поверх фото в шапке и уезжает вместе со страницей */
+  .navbar,
+  .navbar.is-scrolled {
+    position: absolute;
+    background-color: transparent;
+    padding: 14px 18px;
+  }
+
+  .logo .text-wrapper {
+    font-size: 26px;
+    line-height: 30px;
+  }
+
+  .logo .phot {
+    font-size: 9px;
+    letter-spacing: 1.2px;
+  }
+
+  .menu-icon img {
+    width: 22px;
+    height: 22px;
+    display: block;
+  }
+
+  .mobile-menu-container .close-icon img {
+    width: 20px;
+    height: 20px;
+    display: block;
+  }
+
+  .mobile-menu-container .menu-items li a {
+    font-size: 28px;
+    padding: 8px 0;
+  }
+}

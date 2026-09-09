@@ -49,7 +49,7 @@ const Pricing = forwardRef(({ request_ref }, ref) => {
   const scrollToSection = (elementRef) => {
     if (!elementRef || !elementRef.current) return;
     window.scrollTo({
-      top: Math.max(elementRef.current.offsetTop - 84, 0),
+      top: Math.max(elementRef.current.offsetTop - (window.innerWidth <= 720 ? 0 : 84), 0),
       behavior: 'smooth'
     });
   };

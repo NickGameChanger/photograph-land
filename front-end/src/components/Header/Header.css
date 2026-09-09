@@ -121,3 +121,31 @@ header .hero_btn:hover {
         background-position: left;
     }
 }
+
+@media (max-width: 720px) {
+    header {
+        min-height: 78vh;
+        min-height: 78svh;
+    }
+
+    header .hero {
+        padding: 0 18px 36px;
+    }
+
+    header .hero_eyebrow {
+        font-size: 10px;
+        letter-spacing: 1.6px;
+        margin-bottom: 12px;
+    }
+
+    header .hero_title {
+        font-size: 27px;
+        line-height: 118%;
+        margin-bottom: 12px;
+    }
+
+    header .hero_text {
+        font-size: 13px;
+        margin-bottom: 18px;
+    }
+}
