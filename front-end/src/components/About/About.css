@@ -267,9 +267,10 @@
         margin: 0;
     }
 
+    /* на телефоне два портрета в ряд, не четыре: оставляем два крупных плана */
     .photos_line #portrait_alina1,
     .photos_line #portrait_alina2 {
-        display: block;
+        display: none;
     }
 }
 
