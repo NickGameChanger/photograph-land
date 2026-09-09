@@ -126,7 +126,6 @@ const Portfolio = forwardRef((props, ref) => {
 
   const next = () => scrollToRaw(rawIndex.current + 1);
   const prev = () => scrollToRaw(rawIndex.current - 1);
-  const goTo = (i) => scrollToRaw(clones + i);
 
   const pause = () => { clearTimeout(pauseTimer.current); setPaused(true); };
   const resume = () => {
