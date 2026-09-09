@@ -30,6 +30,11 @@ import wed_r2_p2 from "./wed_r2_p2.jpg";
 import wed_r2_p3 from "./wed_r2_p3.jpg";
 import wed_r2_p4 from "./wed_r2_p4.jpg";
 
+// фото карточек в блоке Services («Those who matter») — заменяются отдельно
+import price_p1 from "./price_p1.jpg";
+import price_p2 from "./price_p2.jpg";
+import price_p3 from "./price_p3.jpg";
+
 import portrait_alina1 from "./portrait_alina1.jpg";
 import portrait_alina2 from "./portrait_alina2.jpg";
 import portrait_alina3 from "./portrait_alina3.jpg";
@@ -48,6 +53,7 @@ export {
     family_r2_p1, family_r2_p2, family_r2_p3, family_r2_p4,
     wed_r1_p1, wed_r1_p2, wed_r1_p3, wed_r1_p4,
     wed_r2_p1, wed_r2_p2, wed_r2_p3, wed_r2_p4,
+    price_p1, price_p2, price_p3,
     portrait_alina1, portrait_alina2, portrait_alina3, portrait_alina4,
     menuIcon, closeIcon
 };

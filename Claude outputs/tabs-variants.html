@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Портфолио — три варианта табов</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Cormorant+Garamond:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #0D0D0D;
+      color: #F2EDE6;
+      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      font-weight: 300;
+      padding: 48px 24px 80px;
+    }
+
+    .page { max-width: 1140px; margin: 0 auto; }
+
+    .intro {
+      color: #9A948C;
+      font-size: 14px;
+      line-height: 160%;
+      max-width: 640px;
+      margin: 0 0 56px;
+    }
+
+    .variant { margin-bottom: 88px; }
+
+    .variant__label {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #0D0D0D;
+      background: #C7C2BB;
+      padding: 5px 12px;
+      border-radius: 3px;
+      margin-bottom: 8px;
+    }
+
+    .variant__note {
+      color: #9A948C;
+      font-size: 13px;
+      line-height: 160%;
+      margin: 0 0 32px;
+      max-width: 620px;
+    }
+
+    h2.section-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 43px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      margin: 0 0 40px;
+    }
+
+    /* ---------- сетка фото (одинаковая во всех вариантах) ---------- */
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 32px;
+      row-gap: 56px;
+      margin-top: 60px;
+    }
+
+    .cell {
+      aspect-ratio: 4 / 5;
+      background:
+        linear-gradient(160deg, #2b2b2b 0%, #1a1a1a 55%, #232323 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #4a4a4a;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* ---------- вариант 1: капсулы ---------- */
+
+    .pills { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .pill {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #C7C2BB;
+      border: 0.5px solid rgba(255, 255, 255, 0.35);
+      border-radius: 999px;
+      padding: 12px 26px;
+      cursor: pointer;
+      background: transparent;
+      font-family: inherit;
+      font-weight: 400;
+      transition: all 0.25s ease;
+    }
+
+    .pill:hover { border-color: #F2EDE6; color: #F2EDE6; }
+
+    .pill.is-active {
+      background: #F2EDE6;
+      border-color: #F2EDE6;
+      color: #121212;
+    }
+
+    /* ---------- вариант 2: крупный serif ---------- */
+
+    .serif-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0 22px;
+    }
+
+    .serif-tab {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 30px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: rgba(242, 237, 230, 0.38);
+      cursor: pointer;
+      background: none;
+      border: 0;
+      padding: 6px 0;
+      transition: color 0.25s ease;
+    }
+
+    .serif-tab:hover { color: rgba(242, 237, 230, 0.7); }
+    .serif-tab.is-active { color: #F2EDE6; }
+
+    .serif-dot { color: rgba(242, 237, 230, 0.25); font-size: 20px; }
+
+    /* ---------- вариант 3: нумерованные ---------- */
+
+    .num-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+
+    .num-tab {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #8A857E;
+      background: none;
+      border: 0;
+      padding: 0 28px 14px;
+      cursor: pointer;
+      transition: color 0.25s ease;
+    }
+
+    .num-tab:first-child { padding-left: 0; }
+
+    .num-tab + .num-tab { border-left: 0.5px solid rgba(255, 255, 255, 0.18); }
+
+    .num-tab sup {
+      font-size: 9px;
+      letter-spacing: 0;
+      color: #5f5b56;
+      transition: color 0.25s ease;
+    }
+
+    .num-tab:hover { color: #F2EDE6; }
+
+    .num-tab.is-active { color: #F2EDE6; }
+    .num-tab.is-active sup { color: #C7C2BB; }
+
+    .num-tab.is-active::after {
+      content: '';
+      position: absolute;
+      left: 28px;
+      right: 28px;
+      bottom: 0;
+      height: 2px;
+      background: #F2EDE6;
+    }
+
+    .num-tab:first-child.is-active::after { left: 0; }
+
+    @media (max-width: 720px) {
+      body { padding: 32px 16px 60px; }
+      h2.section-title { font-size: 28px; }
+      .gallery { grid-template-columns: repeat(2, 1fr); column-gap: 16px; row-gap: 28px; }
+      .serif-tab { font-size: 22px; }
+      .num-tab { padding: 0 14px 12px; }
+      .num-tab.is-active::after { left: 14px; right: 14px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <p class="intro">
+      Три варианта переключателя категорий. Вкладки живые — потыкай, чтобы понять ощущение.
+      Серые прямоугольники — это фотографии, они во всех вариантах одинаковые, чтобы сравнивать
+      только сам переключатель.
+    </p>
+
+    <!-- ВАРИАНТ 1 -->
+    <section class="variant">
+      <span class="variant__label">Вариант 1 — капсулы</span>
+      <p class="variant__note">
+        Самый очевидный для клиента: кнопка выглядит как кнопка, её хочется нажать.
+        Нижняя линия не нужна — форма капсулы сама держит строку.
+      </p>
+
+      <h2 class="section-title">Photos always have their voice</h2>
+
+      <div class="pills" data-group>
+        <button class="pill is-active" data-tab>Family</button>
+        <button class="pill" data-tab>Love, love, love</button>
+        <button class="pill" data-tab>Now, wedding</button>
+      </div>
+
+      <div class="gallery">
+        <div class="cell">фото</div>
+        <div class="cell">фото</div>
+        <div class="cell">фото</div>
+        <div class="cell">фото</div>
+      </div>
+    </section>
+
+    <!-- ВАРИАНТ 2 -->
+    <section class="variant">
+      <span class="variant__label">Вариант 2 — крупный serif</span>
+      <p class="variant__note">
+        Категории набраны тем же шрифтом, что и заголовок, — блок читается как одно целое.
+        Никаких линий и рамок, работает только контраст яркости. Самый тихий и «журнальный»,
+        но менее очевидно, что по ним кликают.
+      </p>
+
+      <h2 class="section-title">Photos always have their voice</h2>
+
+      <div class="serif-tabs" data-group>
+        <button class="serif-tab is-active" data-tab>Family</button>
+        <span class="serif-dot">·</span>
+        <button class="serif-tab" data-tab>Love, love, love</button>
+        <span class="serif-dot">·</span>
+        <button class="serif-tab" data-tab>Now, wedding</button>
+      </div>
+
+      <div class="gallery">
+        <div class="cell">фото</div>
+        <div class="cell">фото</div>
+        <div class="cell">фото</div>
+        <div class="cell">фото</div>
+      </div>
+    </section>
+
+    <!-- ВАРИАНТ 3 -->
+    <section class="variant">
+      <span class="variant__label">Вариант 3 — нумерованные</span>
+      <p class="variant__note">
+        Ближе всего к тому, что есть сейчас, но строка перестаёт «висеть»: вертикальные
+        разделители держат её вместе, цифра показывает, сколько кадров внутри, а активная
+        подчёркнута короткой жирной чертой вместо длинной тонкой.
+      </p>
+
+      <h2 class="section-title">Photos always have their voice</h2>
+
+      <div class="num-tabs" data-group>
+        <button class="num-tab is-active" data-tab>Family <sup>8</sup></button>
+        <button class="num-tab" data-tab>Love, love, love <sup>8</sup></button>
+        <button class="num-tab" data-tab>Now, wedding <sup>8</sup></button>
+      </div>
+
+      <div class="gallery">
+        <div class="cell">фото</div>
+        <div class="cell">фото</div>
+        <div class="cell">фото</div>
+        <div class="cell">фото</div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    document.querySelectorAll('[data-group]').forEach(function (group) {
+      group.addEventListener('click', function (e) {
+        var btn = e.target.closest('[data-tab]');
+        if (!btn || !group.contains(btn)) return;
+        group.querySelectorAll('[data-tab]').forEach(function (b) { b.classList.remove('is-active'); });
+        btn.classList.add('is-active');
+      });
+    });
+  </script>
+</body>
+
+</html>

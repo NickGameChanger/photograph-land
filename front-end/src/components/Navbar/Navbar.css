@@ -1,21 +1,30 @@
+/* верхняя панель: закреплена, во всю ширину, поверх всего остального */
 .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 500;
   display: flex;
-  top: 0px;
   align-items: center;
-  z-index: 3;
-  top: 16.5px;
-  margin: 1em;
-  margin-top: 0px;
-  align-items: center;
-  border-radius: 10px 10px 10px 10px;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 14px 3%;
+  margin: 0;
+  background-color: transparent;
+  transition: background-color 0.3s ease, padding 0.3s ease;
+}
+
+/* над фотографией в шапке фон не нужен, он появляется при прокрутке */
+.navbar.is-scrolled {
+  background-color: #0D0D0D;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .navbar .logo {
-  height: 68px;
-  left: 3%;
-  position: absolute;
-  top: 24px;
   width: fit-content;
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,10 +33,10 @@
 .logo .text-wrapper {
   color: #FFFFFF;
   font-family: 'Alex Brush', cursive;
-  font-size: 40px;
+  font-size: 32px;
   font-weight: 400;
   letter-spacing: 0.5px;
-  line-height: 44px;
+  line-height: 36px;
   position: relative;
   transform: skewX(-12deg) scaleX(1.25);
   transform-origin: center;
@@ -48,32 +57,29 @@
 }
 
 .navbar .work-btn {
-  background-color: transparent;
-  border-radius: 8px;
-  color: #FFFFFF;
+  background-color: var(--btn-light);
+  border: 1px solid var(--btn-light);
+  border-radius: var(--btn-radius);
+  color: var(--btn-dark);
   font-family: 'Poppins', Helvetica, sans-serif;
   font-weight: 400;
-  font-size: 13px;
-  letter-spacing: 1.2px;
+  font-size: var(--btn-font-size);
+  letter-spacing: var(--btn-letter-spacing);
   text-transform: uppercase;
   display: flex;
-  width: 130px;
   height: 42px;
-  padding: 12px 18px;
+  padding: var(--btn-padding);
+  transition: var(--btn-transition);
   justify-content: center;
   align-items: center;
   gap: 10px;
   flex-shrink: 0;
-  position: absolute;
-  right: 3%;
-  top: 37px;
   cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .navbar .work-btn:hover {
-  background-color: #FFFFFF;
-  color: #121212;
+  background-color: transparent;
+  color: var(--btn-light);
 }
 
 
@@ -81,9 +87,7 @@
   align-items: center;
   display: inline-flex;
   gap: 34px;
-  right: calc(3% + 200px);
-  position: absolute;
-  top: 50px;
+  margin-left: auto;
 }
 
 .navbar .text-wrapper-2 {
@@ -181,44 +185,93 @@
 
   .menu-icon {
     display: block;
-    position: absolute;
-    right: 50px;
-    top: 50px;
+    margin-left: auto;
+    cursor: pointer;
   }
 
+  .navbar {
+    padding: 12px 20px;
+  }
+
+  /* выезжающее меню: на весь экран, в типографике сайта */
   .mobile-menu-container {
     display: flex;
+    flex-direction: column;
     position: fixed;
+    inset: 0;
     z-index: 600;
     background: #0D0D0D;
-    left: 0;
-    right: 0;
-    padding: 60px 32px;
+    padding: 88px 28px 36px;
     transform: translateY(-100%);
-    transition: all 1200ms cubic-bezier(0.3, 0.96, 0.59, 0.95);
+    transition: transform 600ms cubic-bezier(0.3, 0.96, 0.59, 0.95);
   }
 
   .mobile-menu-container.active {
     transform: translateY(0);
   }
 
+  .mobile-menu-container .close-icon {
+    position: absolute;
+    top: 22px;
+    right: 24px;
+    cursor: pointer;
+  }
+
   .mobile-menu-container .menu-items {
     list-style: none;
     padding: 0;
     margin: 0;
-  }
-
-  .mobile-menu-container .close-icon {
-    position: fixed;
-    top: 32px;
-    right: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
   }
 
   .mobile-menu-container .menu-items li a {
-    font-weight: 800;
-    font-size: 16px;
-    padding: 20px 0;
     display: inline-block;
-    color: #fff;
+    padding: 10px 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: #F2EDE6;
+    text-decoration: none;
+  }
+
+  .mobile-menu-container .menu-footer {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    align-items: flex-start;
+  }
+
+  .mobile-menu-container .work-btn--mobile {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--btn-light);
+    border: 1px solid var(--btn-light);
+    border-radius: var(--btn-radius);
+    color: var(--btn-dark);
+    font-family: 'Poppins', Helvetica, sans-serif;
+    font-size: var(--btn-font-size);
+    letter-spacing: var(--btn-letter-spacing);
+    text-transform: uppercase;
+    padding: var(--btn-padding);
+    text-decoration: none;
+  }
+
+  .mobile-menu-container .menu-contacts {
+    display: flex;
+    gap: 22px;
+  }
+
+  .mobile-menu-container .menu-contacts a {
+    color: #8A857E;
+    font-family: 'Poppins', Helvetica, sans-serif;
+    font-size: 12px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    text-decoration: none;
   }
 }

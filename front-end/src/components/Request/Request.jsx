@@ -1,40 +1,43 @@
 import React from 'react'
 import { useState, forwardRef } from "react";
 import { pink } from '@mui/material/colors';
-import Checkbox from '@mui/material/Checkbox';
+import Radio from '@mui/material/Radio';
 import "./Request.css"
+
+// один вариант на выбор — радиокнопки, а не галочки
+const SESSION_TYPES = [
+  { value: 'wedding', label: 'Wedding session' },
+  { value: 'love', label: 'Love story' },
+  { value: 'family', label: 'Family vibe' },
+  { value: 'other', label: 'Other — tell me below' },
+];
+
+const radioStyle = {
+  color: '#F2EDE6',
+  '&.Mui-checked': { color: '#FFFFFF' },
+  '& .MuiSvgIcon-root': { fontSize: 22 },
+};
 
 const Request = forwardRef((props, ref) => {
 
-  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-
-  const [formData, setFormData] = useState({ name: "", email: "", message: "", isWedding: true, isLoveStory: false, isFamily: false });
+  const [formData, setFormData] = useState({ name: "", email: "", message: "", sessionType: "wedding" });
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
   };
-  const handleCheckboxChange = (event) => {
-    const name = event.target.name;
-    const value = event.target.checked;
-    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  const handleSessionTypeChange = (event) => {
+    setFormData((prevFormData) => ({ ...prevFormData, sessionType: event.target.value }));
   };
 
   const [showPopup, setShowPopup] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { name, email, message, isWedding, isLoveStory, isFamily } = formData;
+    const { name, email, message, sessionType } = formData;
+    const typeLabel = (SESSION_TYPES.find((t) => t.value === sessionType) || {}).label || '—';
 
-    let mm = `📸Новая заявка на фотосессию от <b>${name}</b> \nemail: ${email}\nидеи клиента: ${message}\nКлиент выразил желание к: \n`;
-    if (isWedding) {
-      mm += '🤵👰🏻Wedding session\n'
-    }
-    if (isLoveStory) {
-      mm += '👩‍❤️‍👨Love story\n'
-    }
-    if (isFamily) {
-      mm += '👨‍👩‍👦‍👦Family vibe'
-    }
+    const mm = `📸Новая заявка на фотосессию от <b>${name}</b> \nemail: ${email}\nТип съёмки: ${typeLabel}\nидеи клиента: ${message}`;
+
     const body = {
       chat_id: 333260928,
       text: mm,
@@ -72,57 +75,36 @@ const Request = forwardRef((props, ref) => {
         </div>
         <div className='request_block'>
           <form onSubmit={handleSubmit}>
+            <div className='form_col form_col_left'>
 
-            <div className='field_name'>Name</div>
-            <div><input type="text" id="name" name="name" placeholder="Your name" value={formData.name} onChange={handleChange}></input></div>
-            <div className='field_name'>I’m looking for:</div>
+              <div className='field_name'>Name</div>
+              <div><input type="text" id="name" name="name" placeholder="Your name" value={formData.name} onChange={handleChange}></input></div>
+              <div className='field_name'>I’m looking for:</div>
 
-            <div className='checkboxes'>
-              <div className='session_type'>
-                <Checkbox {...label} defaultChecked name="isWedding" checked={formData.isWedding} onChange={handleCheckboxChange} sx={
-                  {
-                    color: '#F2EDE6',
-                    '&.Mui-checked': {
-                      color: '#A9504C',
-                    },
-                    '& .MuiSvgIcon-root': { fontSize: 24 }
-                  }
-                } />
-                <div className='checkbox_name'>Wedding session</div>
-              </div>
-
-              <div className='session_type'>
-                <Checkbox {...label} name="isLoveStory" checked={formData.isLoveStory} onChange={handleCheckboxChange} sx={
-                  {
-                    color: '#F2EDE6',
-                    '&.Mui-checked': {
-                      color: '#A9504C',
-                    },
-                    '& .MuiSvgIcon-root': { fontSize: 24 }
-                  }
-                } />
-                <div className='checkbox_name'>Love story</div>
-              </div>
-
-              <div className='session_type'>
-                <Checkbox {...label} name="isFamily" checked={formData.isFamily} onChange={handleCheckboxChange} sx={
-                  {
-                    color: '#F2EDE6',
-                    '&.Mui-checked': {
-                      color: '#A9504C',
-                    },
-                    '& .MuiSvgIcon-root': { fontSize: 24 }
-                  }
-                } />
-                <div className='checkbox_name'>Family vibe</div>
+              <div className='checkboxes'>
+                {SESSION_TYPES.map((type) => (
+                  <label className='session_type' key={type.value}>
+                    <Radio
+                      name='sessionType'
+                      value={type.value}
+                      checked={formData.sessionType === type.value}
+                      onChange={handleSessionTypeChange}
+                      inputProps={{ 'aria-label': type.label }}
+                      sx={radioStyle}
+                    />
+                    <span className='checkbox_name'>{type.label}</span>
+                  </label>
+                ))}
               </div>
             </div>
 
-            <div className='field_name' id='emailField'>Email</div>
-            <div className='emailInput'><input type="text" id="email" name="email" placeholder="Your email address" value={formData.email} onChange={handleChange}></input></div>
-            <div className='field_name'>Tell me your ideas</div>
-            <textarea name="message" id='message' value={formData.message} onChange={handleChange} placeholder='e.g. I’d rather not make choices, I simply want to have the most amazing photo session of my life' ></textarea>
-            <div className='buttondiv'><button className='btn' type="submit">Send</button></div>
+            <div className='form_col form_col_right'>
+              <div className='field_name' id='emailField'>Email</div>
+              <div className='emailInput'><input type="text" id="email" name="email" placeholder="Your email address" value={formData.email} onChange={handleChange}></input></div>
+              <div className='field_name'>Tell me your ideas</div>
+              <textarea name="message" id='message' value={formData.message} onChange={handleChange} placeholder='e.g. I’d rather not make choices, I simply want to have the most amazing photo session of my life' ></textarea>
+              <div className='buttondiv'><button className='btn' type="submit">Send</button></div>
+            </div>
 
           </form>
         </div>

@@ -4,8 +4,9 @@
 
 #pricing .wrapper {
     width: 100%;
-    max-width: 1140px;
+    max-width: 1320px;
     margin: 80px auto;
+    padding: 0 24px;
     display: flex;
     flex-direction: column;
 }
@@ -25,7 +26,7 @@
 #pricing .eyebrow {
     color: #C7C2BB;
     font-family: 'Poppins', Helvetica, sans-serif;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 400;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -45,7 +46,7 @@
 #pricing .header_right p {
     color: #C7C2BB;
     font-family: 'Poppins', Helvetica, sans-serif;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 300;
     line-height: 160%;
     margin: 0;
@@ -65,7 +66,7 @@
 
 #pricing .plan_photo {
     width: 100%;
-    height: 260px;
+    height: 330px;
     object-fit: cover;
     filter: grayscale(100%);
     margin-bottom: 28px;
@@ -84,7 +85,7 @@
 #pricing .plan_title {
     color: #F2EDE6;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 32px;
+    font-size: 25px;
     font-weight: 600;
     margin-bottom: 10px;
 }
@@ -92,7 +93,7 @@
 #pricing .plan_subtitle {
     color: #C7C2BB;
     font-family: 'Poppins', Helvetica, sans-serif;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 300;
     font-style: italic;
     margin-bottom: 16px;
@@ -108,7 +109,7 @@
 #pricing .plan_features li {
     color: #C7C2BB;
     font-family: 'Poppins', Helvetica, sans-serif;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 300;
     line-height: 190%;
     position: relative;
@@ -123,20 +124,41 @@
 
 #pricing .plan_btn {
     align-self: flex-start;
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: var(--btn-radius);
     color: #F2EDE6;
     font-family: 'Poppins', Helvetica, sans-serif;
-    font-size: 14px;
+    font-size: var(--btn-font-size);
     font-weight: 400;
-    padding: 14px 24px;
+    letter-spacing: var(--btn-letter-spacing);
+    text-transform: uppercase;
+    padding: var(--btn-padding);
     cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    transition: var(--btn-transition);
 }
 
 #pricing .plan_btn:hover {
-    background-color: #F5F1EC;
-    color: #121212;
-    border-color: #F5F1EC;
+    background-color: var(--btn-light);
+    color: var(--btn-dark);
+    border-color: var(--btn-light);
+}
+
+#pricing .pricing_note {
+    margin-top: 56px;
+    padding-top: 28px;
+    border-top: 0.5px solid rgba(255, 255, 255, 0.18);
+    width: 100%;
+    color: #C7C2BB;
+    font-family: 'Poppins', Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 160%;
+}
+
+#pricing .pricing_note span {
+    color: #F2EDE6;
+    font-weight: 400;
 }
 
 @media (max-width: 1040px) {
@@ -156,6 +178,14 @@
 @media (max-width: 900px) {
     #pricing .plans_grid {
         flex-direction: column;
-        gap: 60px;
+        gap: 48px;
+    }
+
+    #pricing .plan_photo {
+        height: 220px;
+    }
+
+    #pricing .pricing_note {
+        margin-top: 40px;
     }
 }

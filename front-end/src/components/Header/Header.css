@@ -1,8 +1,7 @@
 header {
-    width: 100vw;
+    width: 100%;
     height: auto;
     min-height: 100vh;
-    min-width: 100vh;
     background: url('../../assets/header_photo.jpg');
     background-size: cover;
     background-repeat: no-repeat;

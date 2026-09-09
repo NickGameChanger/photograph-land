@@ -3,15 +3,19 @@
 }
 
 #approach .wrapper2 {
-    width: 1440px;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
 }
 
 #approach .wrapper {
     margin: 30px 30px 30px 30px;
-    width: 1224px;
-    height: 447.578px;
+    width: 100%;
+    max-width: 1224px;
+    height: auto;
+    padding-bottom: 40px;
 }
 
 #approach .wrapper .header_section {
@@ -20,210 +24,141 @@
     justify-content: center;
     position: relative;
     margin-bottom: 30px;
-
 }
+
+/* --- десктоп: три шага в ряд, кружки соединены одной линией --- */
 
 #approach .steps {
-    display: flex;
-    column-gap: 80px;
-    flex-direction: row;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
     max-width: 1140px;
-    height: auto;
+    margin: 46px auto 0;
+}
+
+/* линия от центра первого кружка до центра последнего;
+   кружки залиты белым и перекрывают её */
+#approach .steps::before {
+    content: '';
+    position: absolute;
+    top: 31px;
+    left: 16.6667%;
+    right: 16.6667%;
+    height: 0.5px;
+    background: #FFFFFF;
+}
+
+#approach .step {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 24px;
+}
+
+#approach .circle {
+    width: 63px;
+    height: 63px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #FFFFFF;
+    display: flex;
+    align-items: center;
     justify-content: center;
-    object-fit: contain;
-}
-
-
-#approach .steps .container {
-    object-fit: contain;
-    width: 25%;
-}
-
-#approach .steps .container .cell {
-    height: auto;
-
-    padding: 15.42px 0;
-    color: var(--light-primary-color-85, #C7C2BB);
-    text-align: center;
-    font-family: 'Poppins', Helvetica, sans-serif;
-    font-size: 18px;
-    font-style: normal;
-
-    font-weight: 300;
-    line-height: 120%;
-    letter-spacing: 0.09px;
-}
-
-#approach .steps .container .header {
-
-    text-align: center;
-    color: var(--light-primary-color-85, #F2EDE6);
+    color: #0D0D0D;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 34px;
-    font-style: normal;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1;
+    font-variant-numeric: lining-nums;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 1;
+}
+
+#approach .header {
+    color: #F2EDE6;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 25px;
     font-weight: 600;
     line-height: 120%;
     letter-spacing: 0.02em;
     text-transform: uppercase;
 }
 
-
-
-#approach .wrapper .draw_line {
-    margin-top: 46.81px;
-    margin-bottom: 32.87px;
-    gap: 250px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+#approach .cell {
+    padding: 15px 0 0;
+    color: var(--light-primary-color-85, #C7C2BB);
+    font-family: 'Poppins', Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 150%;
+    letter-spacing: 0.09px;
 }
-
-#approach .wrapper .number {
-    color: var(--light-text-link-color-orange, #7A2E2E);
-    text-align: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 63px;
-    height: 63px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    /* Heading/H5 Bold */
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 26px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 1;
-    letter-spacing: 0.12px;
-    font-variant-numeric: lining-nums;
-    font-feature-settings: "lnum" 1;
-}
-
-#approach .wrapper .circle {
-    position: relative;
-}
-
-#approach .wrapper .line {
-    width: 226px;
-    height: 0.5px;
-    background: #FFFFFF;
-    position: absolute;
-    left: 79.13px;
-    top: 31px;
-}
-
-
 
 @media (max-width: 1140px) {
-    #approach .wrapper2 {
-        width: 1140px;
-        display: flex;
-        justify-content: center;
-    }
-
-    #approach .wrapper {
-        margin: 30px 30px 30px 30px;
-        width: 1040px;
-    }
-
-
-
-    #approach .wrapper .line {
-        width: 106px;
-        left: 79.13px;
-    }
-
-    #approach .steps {
-        column-gap: 40px;
-
-    }
-
-    #approach .steps .container {
-
-        width: 20%;
-    }
-
-    #approach .wrapper .draw_line {
-        margin-top: 46.81px;
-        margin-bottom: 32.87px;
-        gap: 130px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
+    #approach .step {
+        padding: 0 12px;
     }
 }
 
+/* --- телефон: список, кружок слева, текст справа, линия вертикальная --- */
 
 @media (max-width: 720px) {
-    #approach .wrapper2 {
-        width: 100%;
-        height: auto;
-    }
-
     #approach .wrapper {
-        width: 100%;
-        height: auto;
-        margin: 10px 10px 10px 10px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
+        margin: 16px 20px 24px;
+        padding-bottom: 16px;
     }
 
-    #approach .wrapper .draw_line {
-        margin-top: 20px;
-        margin-bottom: 0px;
-        gap: 120px;
-        display: flex;
-        position: relative;
-        flex-direction: column;
-        left: 10px;
-    }
-
-    #approach .steps .container .header {
-        font-size: 18px;
-    }
-
-    #approach .steps .container .cell {
-        font-size: 14px;
-        padding: 8px 0;
-    }
-
-    #approach .steps .container {
-        width: 100%;
-        object-fit: contain;
-
+    #approach .wrapper .header_section {
+        margin-bottom: 8px;
     }
 
     #approach .steps {
-        position: relative;
-        left: 30px;
-        width: 40%;
         display: flex;
-        row-gap: 20px;
-        align-items: center;
-        max-width: 320px;
         flex-direction: column;
+        gap: 28px;
+        margin-top: 24px;
     }
 
-    #approach .wrapper .line {
+    #approach .steps::before {
+        top: 22px;
+        bottom: 22px;
+        left: 21.75px;
+        right: auto;
         width: 0.5px;
-        height: 130px;
-        background: #FFFFFF;
-        position: absolute;
-        left: 30px;
-        top: 75px;
+        height: auto;
     }
 
-    .stepsContainer {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        justify-content: space-evenly;
+    #approach .step {
+        display: grid;
+        grid-template-columns: 44px 1fr;
+        column-gap: 18px;
+        align-items: start;
+        text-align: left;
+        padding: 0;
     }
 
+    #approach .circle {
+        width: 44px;
+        height: 44px;
+        font-size: 20px;
+        margin: 0;
+    }
+
+    #approach .step_body {
+        padding-top: 8px;
+    }
+
+    #approach .header {
+        font-size: 20px;
+    }
+
+    #approach .cell {
+        font-size: 14px;
+        padding-top: 8px;
+        line-height: 155%;
+    }
 }

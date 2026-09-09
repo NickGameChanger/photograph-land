@@ -1,4 +1,46 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+/* пока идёт заставка, страница не прокручивается */
+html.is-loading,
+html.is-loading body {
+  overflow: hidden;
+}
+
+body {
+  max-width: 100%;
+}
+
+/* закреплённая панель сверху — якоря останавливаются ниже неё */
+section,
+header,
+footer {
+  scroll-margin-top: 84px;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* горизонтальный жест на трекпаде не должен листать историю браузера */
+  overscroll-behavior-x: none;
+}
+
 :root {
+  /* единый вид кнопок по всему сайту */
+  --btn-radius: 999px;
+  --btn-padding: 13px 26px;
+  --btn-font-size: 13px;
+  --btn-letter-spacing: 1.6px;
+  --btn-light: #F5F1EC;
+  --btn-dark: #121212;
+  --btn-transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+
   --body-body-1-regular-font-family: "Poppins", Helvetica;
   --body-body-1-regular-font-size: 22px;
   --body-body-1-regular-font-style: normal;
@@ -253,14 +295,14 @@ section {
 }
 
 .wrapper {
-  max-width: 1140px;
+  max-width: 1320px;
 }
 
 section h2 {
   color: var(--light-text-color-body-1, #F2EDE6);
   /* Heading/H2 Regular */
   font-family: "Cormorant Garamond", serif;
-  font-size: 48px;
+  font-size: 43px;
   font-style: normal;
   font-weight: 600;
   line-height: 120%;
@@ -289,7 +331,7 @@ section h2 {
 }
 
 .logo-header .logo {
-  color: var(--lightsecondary-color30);
+  color: #FFFFFF;
   font-family: 'Poppins', Helvetica, sans-serif;
   font-size: 24px;
   font-weight: 700;
@@ -347,4 +389,17 @@ section h2 {
     width: 50px;
     bottom: 0;
   }
+}
+/* видно поисковику и скринридеру, не видно глазом */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }

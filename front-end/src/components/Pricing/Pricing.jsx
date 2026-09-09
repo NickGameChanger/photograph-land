@@ -1,18 +1,18 @@
 import React from 'react'
 import "./Pricing.css"
 import { forwardRef } from 'react';
-import { portrait_alina2, love_r1_p2, wed_r1_p4 } from '../../assets';
+import { price_p1, price_p2, price_p3 } from '../../assets';
 
 const plans = [
   {
     packageLabel: 'Package №1',
     name: 'Minimal',
-    price: '€50',
+    price: '€60',
     subtitle: 'Express session:',
-    photo: portrait_alina2,
+    photo: price_p1,
     features: [
       'up to 30 minutes of shooting',
-      '20 edited photos',
+      '20 photos with color and light correction',
       'help choosing outfits',
       'photos ready within 10 days',
     ],
@@ -22,10 +22,10 @@ const plans = [
     name: 'Standard',
     price: '€80',
     subtitle: 'Family session:',
-    photo: love_r1_p2,
+    photo: price_p2,
     features: [
-      'up to 1 hour of shooting',
-      '50 edited photos',
+      'up to 1,5 hours of shooting',
+      '50 photos with color and light correction',
       'help preparing for the session',
       'photos ready within 10 days',
     ],
@@ -35,10 +35,10 @@ const plans = [
     name: 'Maximum',
     price: '€150',
     subtitle: 'Big session for the whole family:',
-    photo: wed_r1_p4,
+    photo: price_p3,
     features: [
-      'up to 2 hours of shooting',
-      '80+ edited photos',
+      'from 2 hours of shooting',
+      '80+ photos with color and light correction',
       'help choosing location and outfits',
       'photos ready within 14 days',
     ],
@@ -49,7 +49,7 @@ const Pricing = forwardRef(({ request_ref }, ref) => {
   const scrollToSection = (elementRef) => {
     if (!elementRef || !elementRef.current) return;
     window.scrollTo({
-      top: elementRef.current.offsetTop,
+      top: Math.max(elementRef.current.offsetTop - 84, 0),
       behavior: 'smooth'
     });
   };
@@ -69,7 +69,7 @@ const Pricing = forwardRef(({ request_ref }, ref) => {
         <div className='plans_grid'>
           {plans.map((plan, index) => (
             <div className='plan_card' key={index}>
-              <img src={plan.photo} alt={plan.name} className='plan_photo' />
+              <img src={plan.photo} loading='lazy' alt={`${plan.name} photo session package — ${plan.subtitle.replace(':', '')}`} className='plan_photo' />
               <div className='plan_package_label'>{plan.packageLabel}</div>
               <div className='plan_title'>{plan.name} — {plan.price}</div>
               <div className='plan_subtitle'>{plan.subtitle}</div>
@@ -81,6 +81,11 @@ const Pricing = forwardRef(({ request_ref }, ref) => {
               <div className='plan_btn' onClick={() => scrollToSection(request_ref)}>Book a session</div>
             </div>
           ))}
+        </div>
+        <div className='pricing_note'>
+          <span>Weddings and large events</span> are quoted individually — the timing, the number of
+          photos and the price depend on the day itself. Tell me what you have in mind and I’ll put
+          together a personal offer.
         </div>
       </div>
     </section>

@@ -1,21 +1,25 @@
-import React from 'react'
-import "./About.css"
 import { forwardRef } from 'react';
+import "./About.css"
 
 const About_ref = forwardRef((props, ref) => {
 
     const scrollToSection = (elementRef) => {
+        if (!elementRef || !elementRef.current) return;
         window.scrollTo({
-            top: elementRef.current.offsetTop,
+            top: Math.max(elementRef.current.offsetTop - 84, 0),
             behavior: 'smooth'
         });
     };
+
     return (
-        <div className='last_line'>
-            <div className='sign'>linanoon</div>
-            <div onClick={() => scrollToSection(ref)} className="work-btn">Let’s talk</div>
+        <div className='btn_line'>
+            <button type='button' onClick={() => scrollToSection(ref)} className="work-btn">
+                Let’s talk
+            </button>
         </div>
     )
 });
+
+About_ref.displayName = 'About_ref';
 
 export default About_ref

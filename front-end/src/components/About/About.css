@@ -5,54 +5,62 @@
 
 #about .wrapper {
     background: var(--light-primary-color-10, #0D0D0D);
-    width: 1440px;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
 }
 
 #about .wrapper2 {
     margin: 30px 30px 40px 30px;
-    width: 1232px;
+    width: 100%;
+    max-width: 1232px;
     height: auto;
-    background: var(--light-system-background-primary, #1A1A1A);
+    background: transparent;
+}
+
+#about .wrapper2 .btn_line {
+    margin-top: 28px;
 }
 
 #about .wrapper2 .work-btn {
-    background-color: transparent;
-    border-radius: 8px;
-    color: #FFFFFF;
+    background-color: var(--btn-light);
+    border: 1px solid var(--btn-light);
+    border-radius: var(--btn-radius);
+    color: var(--btn-dark);
     font-family: 'Poppins', Helvetica, sans-serif;
     font-weight: 400;
-    font-size: 13px;
-    letter-spacing: 1.2px;
+    font-size: var(--btn-font-size);
+    letter-spacing: var(--btn-letter-spacing);
     text-transform: uppercase;
-    width: 158px;
-    height: 56px;
-    padding: 18px 24px;
-    display: flex;
+    padding: var(--btn-padding);
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
     cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    transition: var(--btn-transition);
 }
 
 #about .wrapper2 .work-btn:hover {
-    background-color: #FFFFFF;
-    color: #121212;
+    background-color: transparent;
+    color: var(--btn-light);
 }
 
 #about .wrapper2 .photos_line {
-    display: inline-flex;
-    justify-content: center;
+    display: flex;
     align-items: flex-start;
-    gap: 11px;
+    gap: 12px;
+    width: 100%;
+    margin-top: 24px;
 }
 
 
 #about .wrapper2 .photos_line img {
-    width: 300px;
-    height: 340px;
+    flex: 1;
+    width: auto;
+    height: 280px;
     object-fit: cover;
     object-position: center;
 }
@@ -61,14 +69,15 @@
     margin: 0;
     display: flex;
     align-items: stretch;
-    gap: 79px;
-
+    gap: 60px;
+    background: var(--light-system-background-primary, #1A1A1A);
 }
 
 #about .wrapper2 .first_block img {
-    width: 361px;
+    width: 26%;
+    aspect-ratio: 4 / 5;
     height: auto;
-    align-self: stretch;
+    align-self: center;
     object-fit: cover;
     object-position: center;
 }
@@ -76,7 +85,9 @@
 #about .wrapper2 .about_section {
     display: flex;
     flex-direction: column;
-    padding: 32px 40px 32px 0;
+    flex: 1;
+    min-width: 0;
+    padding: 36px 40px 36px 0;
 }
 
 #about .wrapper2 .first_block .header_section {
@@ -117,25 +128,23 @@
 #about .wrapper2 .first_block .sign {
     color: #FFFFFF;
     font-family: 'Alex Brush', cursive;
-    font-size: 48px;
+    font-size: 36px;
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
     /* 48px */
     letter-spacing: 0.2px;
     display: inline-block;
+    /* подпись — flex-элемент; без этого она растягивается на всю ширину,
+       а scaleX(1.25) выносит её за край экрана на телефоне */
+    align-self: flex-start;
     transform: skewX(-12deg) scaleX(1.25);
     transform-origin: left center;
 }
 
-#about .wrapper2 .first_block .last_line {
-    display: inline-flex;
-    justify-content: space-between;
-    align-items: center;
+#about .wrapper2 .first_block .sign {
     margin-top: auto;
-    padding-top: 24px;
-
-    width: 100%;
+    padding-top: 40px;
 }
 
 @media (max-width: 1240px) {
@@ -145,7 +154,7 @@
     }
 
     #about .wrapper2 {
-        width: 130%;
+        width: 100%;
         margin: 15px 15px 15px 15px;
         height: auto;
     }
@@ -166,11 +175,11 @@
     }
 
     #about .wrapper2 .photos_line img {
-        width: 23%
+        height: 200px;
     }
 
     #about .wrapper2 .first_block img {
-        width: 40%;
+        width: 34%;
     }
 
     /* #about .wrapper2 {
@@ -180,51 +189,86 @@
 }
 
 @media (max-width: 720px) {
+    #about .wrapper {
+        width: 100%;
+        height: auto;
+    }
 
     #about .wrapper2 {
         width: 100%;
         height: auto;
-        margin-bottom: 30px;
+        margin: 16px 0 24px;
         display: flex;
         flex-direction: column;
     }
 
+    /* фото во всю ширину карточки, текст под ним */
     #about .wrapper2 .first_block {
         display: flex;
         flex-direction: column;
-        margin: 30px 30px 30px 30px;
-        gap: 40px;
-    }
-
-    .photos_line #portrait_alina2 {
-        display: none;
-    }
-
-    .photos_line #portrait_alina1 {
-        display: none;
-    }
-
-    #about .wrapper {
-        width: 100%;
-        height: auto;
-
-    }
-
-    #about .wrapper2 .first_block .simple_container {
-        width: 90%;
-        height: auto;
-        margin-bottom: 10px;
+        margin: 0 16px;
+        gap: 0;
     }
 
     #about .wrapper2 .first_block img {
-        width: 65%;
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        align-self: stretch;
+    }
+
+    #about .wrapper2 .about_section {
+        padding: 24px 20px 28px;
+    }
+
+    #about .wrapper2 .first_block .header_section {
+        margin-bottom: 14px;
+    }
+
+    #about .wrapper2 .first_block .header_section svg {
+        display: none;
+    }
+
+    #about .wrapper2 .first_block .header_section h2 {
+        font-size: 24px;
+    }
+
+    #about .wrapper2 .first_block .simple_container {
+        width: 100%;
         height: auto;
+        margin-bottom: 0;
+    }
+
+    #about .wrapper2 .first_block p {
+        font-size: 14px;
+    }
+
+    #about .wrapper2 .btn_line {
+        margin-top: 22px;
+    }
+
+    #about .wrapper2 .first_block .sign {
+        padding-top: 28px;
+        font-size: 30px;
+    }
+
+    /* ряд портретов: два в ряд, оба ряда, без пропусков */
+    #about .wrapper2 .photos_line {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin: 16px 16px 0;
+        width: auto;
     }
 
     #about .wrapper2 .photos_line img {
-        width: 45%;
+        width: 100%;
         height: auto;
-        margin-bottom: 20px;
+        aspect-ratio: 4 / 5;
+        margin: 0;
     }
 
+    .photos_line #portrait_alina1,
+    .photos_line #portrait_alina2 {
+        display: block;
+    }
 }

@@ -5,7 +5,10 @@ import { Navbar } from '../Navbar/Navbar'
 const Header = (props) => {
   console.log(props)
   return (
-    <header>
+    <header id='home'>
+      <h1 className='visually-hidden'>
+        linanoon photography — family, couple and wedding photographer in Belgrade
+      </h1>
       <Navbar about_ref={props.about_ref}
         portfolio_ref={props.portfolio_ref}
         approach_ref={props.approach_ref}

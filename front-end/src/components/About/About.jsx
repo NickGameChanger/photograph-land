@@ -10,7 +10,7 @@ const About = ({ about_ref, request_ref }) => {
       <div className='wrapper'>
         <div className='wrapper2'>
           <div className='first_block'>
-            <img src={aboutMain} id='main_photo' alt='main_photo' />
+            <img src={aboutMain} id='main_photo' loading='lazy' alt='Alina during a photo session in Belgrade' />
             <div className='about_section'>
               <div ref={about_ref} className='header_section'>
                 <svg xmlns="http://www.w3.org/2000/svg" width="36" height="40" viewBox="0 0 36 40" fill="none">
@@ -29,13 +29,15 @@ const About = ({ about_ref, request_ref }) => {
               </div>
 
               <About_ref ref={request_ref} />
+
+              <div className='sign'>linanoon</div>
             </div>
           </div>
           <div className='photos_line'>
-            <img src={portrait_alina1} id='portrait_alina1' alt='portrait_alina1' />
-            <img src={portrait_alina2} id='portrait_alina2' alt='portrait_alina2' />
-            <img src={portrait_alina3} id='portrait_alina3' alt='portrait_alina3' />
-            <img src={portrait_alina4} id='portrait_alina4' alt='portrait_alina4' />
+            <img src={portrait_alina1} id='portrait_alina1' loading='lazy' alt='Portrait by linanoon photography' />
+            <img src={portrait_alina2} id='portrait_alina2' loading='lazy' alt='Natural light portrait session in Belgrade' />
+            <img src={portrait_alina3} id='portrait_alina3' loading='lazy' alt='Outdoor portrait session in Belgrade' />
+            <img src={portrait_alina4} id='portrait_alina4' loading='lazy' alt='Portrait photography by Alina, Belgrade' />
 
           </div>
 

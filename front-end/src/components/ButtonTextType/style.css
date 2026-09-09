@@ -1,6 +1,6 @@
 .button-text-type {
     align-items: center;
-    background-color: var(--lightsecondary-color50);
+    background-color: #F5F1EC;
     border-radius: 8px;
     display: flex;
     gap: 10px;
@@ -12,7 +12,7 @@
   }
   
   .button-text-type .text-wrapper {
-    color: var(--lighttext-link-colorwhite);
+    color: #121212;
     font-family: var(--menu-menu-1-bold-font-family);
     font-size: var(--menu-menu-1-bold-font-size);
     font-style: var(--menu-menu-1-bold-font-style);

@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Табы портфолио — ещё три варианта</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Cormorant+Garamond:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0; background: #0D0D0D; color: #F2EDE6;
+      font-family: 'Poppins', system-ui, -apple-system, sans-serif; font-weight: 300;
+      padding: 48px 24px 90px;
+    }
+
+    .page { max-width: 1320px; margin: 0 auto; }
+    .intro { color: #9A948C; font-size: 14px; line-height: 160%; max-width: 660px; margin: 0 0 56px; }
+    .variant { margin-bottom: 104px; }
+
+    .variant__label {
+      display: inline-block; font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: #0D0D0D; background: #C7C2BB; padding: 5px 12px; border-radius: 3px; margin-bottom: 8px;
+    }
+
+    .variant__note { color: #9A948C; font-size: 13px; line-height: 160%; margin: 0 0 32px; max-width: 660px; }
+
+    h2.section-title {
+      font-family: 'Cormorant Garamond', Georgia, serif; font-size: 43px; font-weight: 600;
+      letter-spacing: 0.06em; margin: 0 0 36px;
+    }
+
+    .gallery { display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 32px; row-gap: 32px; margin-top: 48px; }
+    .cell {
+      aspect-ratio: 4 / 5;
+      background: linear-gradient(160deg, #2b2b2b 0%, #1a1a1a 55%, #232323 100%);
+      display: flex; align-items: center; justify-content: center;
+      color: #4a4a4a; font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    }
+
+    /* ---------- 1: сегментированный переключатель ---------- */
+
+    .seg {
+      position: relative; display: inline-flex; padding: 5px;
+      border: 1px solid rgba(255,255,255,0.22); border-radius: 999px; background: rgba(255,255,255,0.03);
+    }
+    .seg__thumb {
+      position: absolute; top: 5px; bottom: 5px; left: 5px;
+      background: #F5F1EC; border-radius: 999px;
+      transition: transform .45s cubic-bezier(.4,0,.2,1), width .45s cubic-bezier(.4,0,.2,1);
+      z-index: 0;
+    }
+    .seg__btn {
+      position: relative; z-index: 1; border: 0; background: none; cursor: pointer;
+      font-family: inherit; font-size: 13px; font-weight: 400; letter-spacing: 1.6px;
+      text-transform: uppercase; color: #C7C2BB; padding: 12px 26px; white-space: nowrap;
+      transition: color .3s ease;
+    }
+    .seg__btn.is-active { color: #121212; }
+
+    /* ---------- 2: едущее подчёркивание ---------- */
+
+    .und { position: relative; display: inline-flex; gap: 44px; padding-bottom: 14px; }
+    .und__btn {
+      border: 0; background: none; cursor: pointer; padding: 0;
+      font-family: 'Cormorant Garamond', Georgia, serif; font-size: 30px; font-weight: 500;
+      letter-spacing: 0.02em; color: rgba(242,237,230,.4); transition: color .3s ease; white-space: nowrap;
+    }
+    .und__btn.is-active { color: #F2EDE6; }
+    .und__line {
+      position: absolute; left: 0; bottom: 0; height: 1px; background: #F2EDE6;
+      transition: transform .45s cubic-bezier(.4,0,.2,1), width .45s cubic-bezier(.4,0,.2,1);
+    }
+
+    /* ---------- 3: вертикальный список сбоку ---------- */
+
+    .side { display: grid; grid-template-columns: 240px 1fr; gap: 56px; align-items: start; }
+    .side__list { display: flex; flex-direction: column; gap: 4px; position: sticky; top: 24px; }
+    .side__btn {
+      border: 0; background: none; cursor: pointer; text-align: left; padding: 10px 0 10px 22px;
+      position: relative; font-family: inherit; font-size: 13px; letter-spacing: 1.6px;
+      text-transform: uppercase; color: #7d7871; transition: color .3s ease;
+    }
+    .side__btn::before {
+      content: ''; position: absolute; left: 0; top: 50%; width: 10px; height: 1px;
+      background: currentColor; transform: translateY(-50%) scaleX(0); transform-origin: left;
+      transition: transform .3s ease;
+    }
+    .side__btn:hover { color: #C7C2BB; }
+    .side__btn.is-active { color: #F2EDE6; }
+    .side__btn.is-active::before { transform: translateY(-50%) scaleX(1); }
+    .side__count { display: block; font-size: 10px; letter-spacing: 1px; color: #56514c; margin-top: 4px; }
+    .side .gallery { grid-template-columns: repeat(3, 1fr); margin-top: 0; }
+
+    @media (max-width: 860px) {
+      body { padding: 32px 16px 60px; }
+      h2.section-title { font-size: 28px; }
+      .gallery, .side .gallery { grid-template-columns: repeat(2, 1fr); column-gap: 12px; row-gap: 16px; }
+      .side { grid-template-columns: 1fr; gap: 24px; }
+      .side__list { flex-direction: row; flex-wrap: wrap; gap: 16px; position: static; }
+      .und { gap: 24px; }
+      .und__btn { font-size: 20px; }
+      .seg__btn { padding: 10px 16px; font-size: 11px; letter-spacing: 1px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <p class="intro">Ещё три варианта переключателя. Все кликаются — важно потыкать, потому что в двух из
+      трёх главное именно движение.</p>
+
+    <!-- 1 -->
+    <section class="variant">
+      <span class="variant__label">Вариант 1 — сегментированный переключатель</span>
+      <p class="variant__note">
+        Три кнопки живут внутри одной общей капсулы, а светлая заливка плавно переезжает с одной на другую.
+        Сейчас у нас три отдельные капсулы — глазу приходится сравнивать их между собой; здесь это
+        один элемент с очевидным состоянием.
+      </p>
+
+      <h2 class="section-title">Photos always have their voice</h2>
+
+      <div class="seg" id="seg">
+        <div class="seg__thumb" id="seg-thumb"></div>
+        <button class="seg__btn is-active">Family</button>
+        <button class="seg__btn">Love, love, love</button>
+        <button class="seg__btn">Now, wedding</button>
+      </div>
+
+      <div class="gallery">
+        <div class="cell">фото</div><div class="cell">фото</div><div class="cell">фото</div><div class="cell">фото</div>
+      </div>
+    </section>
+
+    <!-- 2 -->
+    <section class="variant">
+      <span class="variant__label">Вариант 2 — едущее подчёркивание</span>
+      <p class="variant__note">
+        Крупный текст тем же шрифтом, что заголовки, без рамок. Тонкая линия под активной категорией
+        не появляется, а переезжает — движение и подсказывает, что это переключатель.
+      </p>
+
+      <h2 class="section-title">Photos always have their voice</h2>
+
+      <div class="und" id="und">
+        <div class="und__line" id="und-line"></div>
+        <button class="und__btn is-active">Family</button>
+        <button class="und__btn">Love, love, love</button>
+        <button class="und__btn">Now, wedding</button>
+      </div>
+
+      <div class="gallery">
+        <div class="cell">фото</div><div class="cell">фото</div><div class="cell">фото</div><div class="cell">фото</div>
+      </div>
+    </section>
+
+    <!-- 3 -->
+    <section class="variant">
+      <span class="variant__label">Вариант 3 — список сбоку</span>
+      <p class="variant__note">
+        Категории уходят в колонку слева и остаются на месте, пока листаешь фотографии. Сетка становится
+        трёхколоночной — кадры крупнее. Самая «дизайнерская» раскладка из трёх, но и самая непривычная.
+      </p>
+
+      <h2 class="section-title">Photos always have their voice</h2>
+
+      <div class="side">
+        <div class="side__list" id="side">
+          <button class="side__btn is-active">Family<span class="side__count">08</span></button>
+          <button class="side__btn">Love, love, love<span class="side__count">08</span></button>
+          <button class="side__btn">Now, wedding<span class="side__count">08</span></button>
+        </div>
+        <div class="gallery">
+          <div class="cell">фото</div><div class="cell">фото</div><div class="cell">фото</div>
+          <div class="cell">фото</div><div class="cell">фото</div><div class="cell">фото</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // 1 — переезжающая заливка
+    (function () {
+      var box = document.getElementById('seg');
+      var thumb = document.getElementById('seg-thumb');
+      var btns = box.querySelectorAll('.seg__btn');
+      function move(btn) {
+        thumb.style.width = btn.offsetWidth + 'px';
+        thumb.style.transform = 'translateX(' + (btn.offsetLeft - 5) + 'px)';
+      }
+      btns.forEach(function (b) {
+        b.addEventListener('click', function () {
+          btns.forEach(function (x) { x.classList.remove('is-active'); });
+          b.classList.add('is-active');
+          move(b);
+        });
+      });
+      requestAnimationFrame(function () { move(box.querySelector('.is-active')); });
+      window.addEventListener('resize', function () { move(box.querySelector('.is-active')); });
+    })();
+
+    // 2 — переезжающая линия
+    (function () {
+      var box = document.getElementById('und');
+      var line = document.getElementById('und-line');
+      var btns = box.querySelectorAll('.und__btn');
+      function move(btn) {
+        line.style.width = btn.offsetWidth + 'px';
+        line.style.transform = 'translateX(' + btn.offsetLeft + 'px)';
+      }
+      btns.forEach(function (b) {
+        b.addEventListener('click', function () {
+          btns.forEach(function (x) { x.classList.remove('is-active'); });
+          b.classList.add('is-active');
+          move(b);
+        });
+      });
+      requestAnimationFrame(function () { move(box.querySelector('.is-active')); });
+      window.addEventListener('resize', function () { move(box.querySelector('.is-active')); });
+    })();
+
+    // 3 — список сбоку
+    (function () {
+      var box = document.getElementById('side');
+      box.addEventListener('click', function (e) {
+        var b = e.target.closest('.side__btn');
+        if (!b) return;
+        box.querySelectorAll('.side__btn').forEach(function (x) { x.classList.remove('is-active'); });
+        b.classList.add('is-active');
+      });
+    })();
+  </script>
+</body>
+
+</html>
