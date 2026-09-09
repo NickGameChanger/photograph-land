@@ -195,7 +195,15 @@
 
     #portfolio .photos_menu {
         gap: 6px;
-        margin-bottom: 24px;
+        margin-bottom: 22px;
+    }
+
+    /* капсулы на телефоне: компактнее, текст не тонет в кнопке */
+    #portfolio .photos_menu .tab {
+        font-size: 11px;
+        letter-spacing: 1px;
+        padding: 8px 14px;
+        border-width: 1px;
     }
 
     #portfolio .gallery {
