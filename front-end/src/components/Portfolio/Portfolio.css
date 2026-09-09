@@ -163,15 +163,16 @@
         margin: 60px auto;
     }
 
+    /* колонка 900px: лента выходит за её поля до краёв окна */
     #portfolio .strip {
         column-gap: 32px;
-        scroll-padding-left: 24px;
-        margin: 0 -24px;
-        padding: 0 24px;
+        scroll-padding-left: max(24px, calc((100vw - 852px) / 2));
+        margin: 0 calc(-1 * max(24px, (100vw - 852px) / 2));
+        padding: 0 max(24px, calc((100vw - 852px) / 2));
     }
 
     #portfolio .strip_cell {
-        flex-basis: calc((100vw - 48px - 64px) / 3);
+        flex-basis: calc((min(100vw, 900px) - 48px - 64px) / 3);
     }
 }
 

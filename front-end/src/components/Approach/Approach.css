@@ -104,6 +104,13 @@
     }
 }
 
+@media (max-width: 1040px) {
+    #approach .wrapper {
+        max-width: 852px;
+        margin: 30px 24px;
+    }
+}
+
 /* --- телефон: список, кружок слева, текст справа, линия вертикальная --- */
 
 @media (max-width: 720px) {

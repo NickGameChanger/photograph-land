@@ -187,6 +187,14 @@
     }
 }
 
+/* та же колонка 900px, что у остальных блоков на планшете */
+@media (max-width: 1040px) {
+    #about .wrapper {
+        max-width: 900px;
+        padding: 0 24px;
+    }
+}
+
 @media (max-width: 720px) {
     #about .wrapper {
         width: 100%;
