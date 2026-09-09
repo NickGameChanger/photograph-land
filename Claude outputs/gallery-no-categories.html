@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Галерея без категорий — три варианта</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #1c1c1c; color: #F2EDE6; font-family: 'Poppins', system-ui, sans-serif; font-weight: 300; padding: 40px 24px 80px; }
+    .intro { color: #9A948C; font-size: 14px; line-height: 160%; max-width: 680px; margin: 0 0 40px; }
+    .variant { margin-bottom: 90px; }
+    .label { display: inline-block; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #0D0D0D; background: #C7C2BB; padding: 5px 12px; border-radius: 3px; margin-bottom: 8px; }
+    .note { color: #9A948C; font-size: 13px; line-height: 160%; margin: 0 0 22px; max-width: 680px; }
+    .pair { display: flex; gap: 32px; align-items: flex-start; flex-wrap: wrap; }
+
+    .desk { width: 860px; max-width: 100%; background: #0D0D0D; border: 6px solid #2a2a2a; border-radius: 14px; padding: 36px 40px 44px; }
+    .phone { width: 320px; height: 600px; background: #0D0D0D; border-radius: 26px; border: 6px solid #2a2a2a; overflow: hidden; }
+    .screen { height: 100%; overflow-y: auto; padding: 22px 24px 28px; scrollbar-width: none; }
+    .screen::-webkit-scrollbar { display: none; }
+
+    h2 { font-family: 'Cormorant Garamond', serif; font-weight: 600; letter-spacing: 0.04em; margin: 0 0 6px; }
+    .desk h2 { font-size: 34px; }
+    .phone h2 { font-size: 21px; }
+    .sub { color: #8A857E; font-size: 12px; letter-spacing: 1.6px; text-transform: uppercase; margin: 0 0 22px; }
+    .phone .sub { font-size: 10px; margin-bottom: 16px; }
+
+    .cell { background: linear-gradient(160deg, #3a3a3a 0%, #222 55%, #2c2c2c 100%); display: flex; align-items: center; justify-content: center; color: #555; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
+
+    /* 1 — мозаика */
+    .mz { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 150px; gap: 20px; }
+    .mz .a { grid-column: 1 / 3; grid-row: 1 / 3; }
+    .mz .b { grid-column: 3; grid-row: 1; }
+    .mz .c { grid-column: 4; grid-row: 1 / 3; }
+    .mz .d { grid-column: 3; grid-row: 2; }
+    .mz .e { grid-column: 1; grid-row: 3; }
+    .mz .f { grid-column: 2 / 4; grid-row: 3; }
+    .mz .g { grid-column: 4; grid-row: 3; }
+    .mzm { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .mzm .big { grid-column: 1 / -1; aspect-ratio: 4 / 5; }
+    .mzm .sm { aspect-ratio: 4 / 5; }
+
+    /* 2 — лента */
+    .lane { display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 0 6px; scrollbar-width: none; margin: 0 -40px; padding-left: 40px; }
+    .lane::-webkit-scrollbar { display: none; }
+    .lane .cell { flex: 0 0 300px; aspect-ratio: 4 / 5; scroll-snap-align: start; }
+    .lanem { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; margin: 0 -24px; padding: 0 12vw; scrollbar-width: none; }
+    .lanem::-webkit-scrollbar { display: none; }
+    .lanem .cell { flex: 0 0 76%; aspect-ratio: 4 / 5; scroll-snap-align: center; }
+    .bar { display: inline-flex; align-items: center; gap: 10px; margin: 18px auto 0; padding: 7px 11px; border-radius: 999px; background: rgba(255,255,255,.06); }
+    .bar-wrap { text-align: center; }
+    .bar .dot { width: 5px; height: 5px; border-radius: 999px; background: #3a3733; }
+    .bar .dot.on { width: 36px; background: linear-gradient(90deg, #F2EDE6 55%, #3a3733 55%); }
+    .bar .ar { color: #C7C2BB; font-size: 12px; }
+
+    /* 3 — три колонки с живыми пропорциями */
+    .ms { columns: 3; column-gap: 22px; }
+    .ms .cell { display: flex; width: 100%; margin-bottom: 22px; break-inside: avoid; }
+    .msm { columns: 2; column-gap: 12px; }
+    .msm .cell { display: flex; width: 100%; margin-bottom: 12px; break-inside: avoid; }
+    .r45 { aspect-ratio: 4 / 5; } .r32 { aspect-ratio: 3 / 2; } .r11 { aspect-ratio: 1 / 1; } .r34 { aspect-ratio: 3 / 4; }
+
+    .more { display: inline-block; margin-top: 22px; font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; color: #C7C2BB; border-bottom: 1px solid rgba(255,255,255,.3); padding-bottom: 3px; }
+    .phone .more { margin-top: 16px; font-size: 10px; }
+
+    @media (max-width: 720px) { .desk { padding: 24px 18px 30px; } .mz { grid-auto-rows: 80px; gap: 8px; } }
+  </style>
+</head>
+
+<body>
+  <p class="intro">Три варианта галереи без категорий: одна подборка из 6–7 лучших кадров. Слева десктоп, справа телефон. Серые плитки — фото; где пропорции разные, это намеренно.</p>
+
+  <!-- 1 -->
+  <section class="variant">
+    <span class="label">1 — мозаика</span>
+    <p class="note">Семь кадров разного размера в одной композиции: один большой, остальные вокруг. Читается как разворот альбома, взгляд сам ходит по кадрам. На телефоне — ритм «большой, два малых». Самый «фотографский» вариант.</p>
+    <div class="pair">
+      <div class="desk">
+        <h2>Photos always have their voice</h2>
+        <p class="sub">Selected work · Belgrade</p>
+        <div class="mz">
+          <div class="cell a">1</div><div class="cell b">2</div><div class="cell c">3</div>
+          <div class="cell d">4</div><div class="cell e">5</div><div class="cell f">6</div><div class="cell g">7</div>
+        </div>
+      </div>
+      <div class="phone"><div class="screen">
+        <h2>Photos always have their voice</h2>
+        <p class="sub">Selected work · Belgrade</p>
+        <div class="mzm">
+          <div class="cell big">1</div><div class="cell sm">2</div><div class="cell sm">3</div>
+          <div class="cell big">4</div><div class="cell sm">5</div><div class="cell sm">6</div>
+        </div>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="variant">
+    <span class="label">2 — одна лента</span>
+    <p class="note">И на десктопе, и на телефоне — горизонтальная лента с той же панелью автопрокрутки, что уже стоит на телефоне. Блок всегда в один экран, кадры крупные, ничего не надо переключать. Можно положить 8–10 фото без ущерба.</p>
+    <div class="pair">
+      <div class="desk">
+        <h2>Photos always have their voice</h2>
+        <p class="sub">Selected work · Belgrade</p>
+        <div class="lane">
+          <div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div>
+        </div>
+        <div class="bar-wrap"><div class="bar"><span class="ar">←</span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="ar">→</span></div></div>
+      </div>
+      <div class="phone"><div class="screen">
+        <h2>Photos always have their voice</h2>
+        <p class="sub">Selected work · Belgrade</p>
+        <div class="lanem">
+          <div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div>
+        </div>
+        <div class="bar-wrap"><div class="bar"><span class="ar">←</span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="ar">→</span></div></div>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section class="variant">
+    <span class="label">3 — живые пропорции</span>
+    <p class="note">Кадры не подрезаются под один формат: вертикальные остаются вертикальными, горизонтальные — горизонтальными, и укладываются в три колонки разной высоты (на телефоне — две). Самый честный к фотографии вариант и очень «пинтерестовский».</p>
+    <div class="pair">
+      <div class="desk">
+        <h2>Photos always have their voice</h2>
+        <p class="sub">Selected work · Belgrade</p>
+        <div class="ms">
+          <div class="cell r45">1</div><div class="cell r32">4</div><div class="cell r34">7</div>
+          <div class="cell r11">2</div><div class="cell r45">5</div>
+          <div class="cell r32">3</div><div class="cell r45">6</div>
+        </div>
+      </div>
+      <div class="phone"><div class="screen">
+        <h2>Photos always have their voice</h2>
+        <p class="sub">Selected work · Belgrade</p>
+        <div class="msm">
+          <div class="cell r45">1</div><div class="cell r32">3</div><div class="cell r34">5</div>
+          <div class="cell r11">2</div><div class="cell r45">4</div><div class="cell r32">6</div>
+        </div>
+        <span class="more">More on Instagram →</span>
+      </div></div>
+    </div>
+  </section>
+</body>
+
+</html>
