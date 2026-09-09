@@ -193,16 +193,26 @@
         margin-bottom: 16px;
     }
 
+    /* три капсулы в одну строку; на совсем узких экранах строка
+       прокручивается вбок, а не ломается на две */
     #portfolio .photos_menu {
+        flex-wrap: nowrap;
         gap: 6px;
-        margin-bottom: 22px;
+        margin: 0 calc(-1 * var(--gutter)) 22px;
+        padding: 0 var(--gutter);
+        overflow-x: auto;
+        scrollbar-width: none;
     }
 
-    /* капсулы на телефоне: компактнее, текст не тонет в кнопке */
+    #portfolio .photos_menu::-webkit-scrollbar {
+        display: none;
+    }
+
     #portfolio .photos_menu .tab {
-        font-size: 11px;
-        letter-spacing: 1px;
-        padding: 8px 14px;
+        flex: 0 0 auto;
+        font-size: 10px;
+        letter-spacing: 0.6px;
+        padding: 7px 11px;
         border-width: 1px;
     }
 
