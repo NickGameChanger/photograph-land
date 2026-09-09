@@ -14,11 +14,11 @@ const Reviews = forwardRef((props, ref) => {
   return (
     <section ref={ref} id='reviews'>
       <div className='wrapper'>
-        <div className='header_section'>
+        <div className='header_section' data-reveal>
           <h2>Reviews</h2>
         </div>
 
-        <div className='review_single'>
+        <div className='review_single' data-reveal style={{ '--reveal-delay': '120ms' }}>
           <span className='quote_mark' aria-hidden='true'>“</span>
 
           {/* key заставляет React пересоздать узел — так отрабатывает появление */}

@@ -21,7 +21,7 @@ const Footer = forwardRef((props, ref) => {
     <footer id='footer' ref={ref}>
       <div className='wrapper'>
 
-        <div className='footer_cols'>
+        <div className='footer_cols' data-reveal>
           <div className='footer_col footer_col--brand'>
             <div className='sign'>linanoon</div>
             <p className='footer_about'>

@@ -169,11 +169,11 @@ const Portfolio = forwardRef((props, ref) => {
     <section id='portfolio' ref={ref}>
       <div className='wrapper'>
 
-        <div className='header_section'>
+        <div className='header_section' data-reveal>
           <h2>Photos always have their voice</h2>
         </div>
 
-        <div className='photos_menu'>
+        <div className='photos_menu' data-reveal style={{ '--reveal-delay': '100ms' }}>
           {SLIDES.map((slide, index) => (
             <button
               type='button'
@@ -188,6 +188,8 @@ const Portfolio = forwardRef((props, ref) => {
 
         <div
           className='gallery_viewport'
+          data-reveal
+          style={{ '--reveal-delay': '200ms' }}
           ref={viewportRef}
           onPointerDown={handlePointerDown}
           onPointerUp={handlePointerUp}

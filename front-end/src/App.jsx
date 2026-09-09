@@ -1,7 +1,8 @@
 import React from 'react'
 import { Header, About, Approach, Footer, Request, Portfolio, Reviews, Pricing, LoadAnimation } from './components'
-import { useRef } from 'react'
+import useReveal from './hooks/useReveal'
 const App = () => {
+  useReveal();
   const home = React.useRef(null);
   const portfolio = React.useRef(null);
   const approach = React.useRef(null);

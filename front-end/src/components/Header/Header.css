@@ -16,7 +16,99 @@ header {
     box-sizing: border-box;
 }
 
+/* текст поверх фото в шапке */
+header {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(13, 13, 13, 0) 40%, rgba(13, 13, 13, 0.75) 100%);
+    pointer-events: none;
+}
+
+header .hero {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 24px 72px;
+}
+
+header .hero_inner {
+    max-width: 640px;
+}
+
+header .hero_eyebrow {
+    color: #C7C2BB;
+    font-family: 'Poppins', Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+header .hero_title {
+    color: #F2EDE6;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 500;
+    line-height: 112%;
+    letter-spacing: 0.01em;
+    margin: 0 0 18px;
+}
+
+header .hero_text {
+    color: #C7C2BB;
+    font-family: 'Poppins', Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 160%;
+    margin: 0 0 28px;
+}
+
+header .hero_btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--btn-light);
+    border: 1px solid var(--btn-light);
+    border-radius: var(--btn-radius);
+    color: var(--btn-dark);
+    font-family: 'Poppins', Helvetica, sans-serif;
+    font-size: var(--btn-font-size);
+    letter-spacing: var(--btn-letter-spacing);
+    text-transform: uppercase;
+    padding: var(--btn-padding);
+    text-decoration: none;
+    transition: var(--btn-transition);
+}
+
+header .hero_btn:hover {
+    background-color: transparent;
+    color: var(--btn-light);
+}
+
 @media (max-width: 720px) {
+
+    header .hero {
+        padding: 0 20px 44px;
+    }
+
+    header .hero_title {
+        font-size: 34px;
+    }
+
+    header .hero_text {
+        font-size: 14px;
+        margin-bottom: 22px;
+    }
 
     header {
         background: url('../../assets/mob_background.jpeg');

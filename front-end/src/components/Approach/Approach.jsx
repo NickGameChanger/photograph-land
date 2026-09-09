@@ -21,7 +21,7 @@ const Approach = forwardRef((props, ref) => {
     <section ref={ref} id='approach'>
       <div className='wrapper2'>
         <div className='wrapper'>
-          <div className="header_section">
+          <div className="header_section" data-reveal>
             <h2>How I work with you</h2>
           </div>
 
@@ -29,7 +29,7 @@ const Approach = forwardRef((props, ref) => {
               на телефоне складываются в список, и ничего не расползается */}
           <div className='steps'>
             {steps.map((step, index) => (
-              <div className='step' key={step.title}>
+              <div className='step' key={step.title} data-reveal style={{ '--reveal-delay': `${index * 120}ms` }}>
                 <div className='circle'>{index + 1}</div>
                 <div className='step_body'>
                   <div className='header'>{step.title}</div>

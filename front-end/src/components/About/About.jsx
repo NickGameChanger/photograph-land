@@ -11,7 +11,7 @@ const About = ({ about_ref, request_ref }) => {
         <div className='wrapper2'>
           <div className='first_block'>
             <img src={aboutMain} id='main_photo' loading='lazy' alt='Alina during a photo session in Belgrade' />
-            <div className='about_section'>
+            <div className='about_section' data-reveal>
               <div ref={about_ref} className='header_section'>
                 <svg xmlns="http://www.w3.org/2000/svg" width="36" height="40" viewBox="0 0 36 40" fill="none">
                   <path d="M22.847 20.4812C24.6413 19.1369 25.9228 17.1081 26.2662 14.7135C26.9529 9.92415 23.6271 5.48492 18.8378 4.79817C14.0485 4.11141 9.60929 7.43719 8.92254 12.2265C8.57916 14.6212 9.23888 16.9283 10.5832 18.7226" stroke="#F2EDE6" strokeWidth="2" strokeLinecap="round" />
@@ -24,7 +24,7 @@ const About = ({ about_ref, request_ref }) => {
                 <p>I’m a Belgrade-based photographer who loves road trips, hiking in the mountains, and black coffee in cute mugs.</p>
                 <br></br>
                 <p>
-                  Photography is my constant love. My camera, a weapon, helps me uncover beauty in every moment and capture emotions in each movement. I'm here to wipe out your anxiety during photo sessions. It’s not about posing, it’s about embracing your true self.
+                  Photography is my constant love. I’m here to take the nervousness out of being photographed: no stiff posing, no “smile now” — just you being you, and me catching it. The glances, the laughs, the way you hold each other.
                 </p>
               </div>
 
@@ -33,7 +33,7 @@ const About = ({ about_ref, request_ref }) => {
               <div className='sign'>linanoon</div>
             </div>
           </div>
-          <div className='photos_line'>
+          <div className='photos_line' data-reveal>
             <img src={portrait_alina1} id='portrait_alina1' loading='lazy' alt='Portrait by linanoon photography' />
             <img src={portrait_alina2} id='portrait_alina2' loading='lazy' alt='Natural light portrait session in Belgrade' />
             <img src={portrait_alina3} id='portrait_alina3' loading='lazy' alt='Outdoor portrait session in Belgrade' />
