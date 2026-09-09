@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Галерея на телефоне — три варианта</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #1c1c1c; color: #F2EDE6; font-family: 'Poppins', system-ui, sans-serif; font-weight: 300; padding: 40px 24px 80px; }
+    .intro { color: #9A948C; font-size: 14px; line-height: 160%; max-width: 640px; margin: 0 0 36px; }
+    .row { display: flex; gap: 36px; flex-wrap: wrap; align-items: flex-start; }
+    .col { width: 340px; }
+    .label { display: inline-block; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #0D0D0D; background: #C7C2BB; padding: 5px 12px; border-radius: 3px; margin-bottom: 8px; }
+    .note { color: #9A948C; font-size: 13px; line-height: 160%; margin: 0 0 18px; min-height: 100px; }
+
+    /* рамка телефона */
+    .phone { width: 340px; height: 640px; background: #0D0D0D; border-radius: 28px; border: 6px solid #2a2a2a; overflow: hidden; position: relative; }
+    .screen { height: 100%; overflow-y: auto; padding: 22px 26px 30px; scrollbar-width: none; }
+    .screen::-webkit-scrollbar { display: none; }
+
+    h2 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; letter-spacing: 0.04em; margin: 0 0 12px; }
+    .pills { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 18px; }
+    .pill { font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase; border: 1px solid rgba(255,255,255,.4); border-radius: 999px; padding: 8px 13px; color: #C7C2BB; }
+    .pill.on { background: #F5F1EC; border-color: #F5F1EC; color: #121212; }
+
+    .cell { background: linear-gradient(160deg, #3a3a3a 0%, #222 55%, #2c2c2c 100%); display: flex; align-items: center; justify-content: center; color: #555; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
+
+    /* 1: лента */
+    .strip { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; margin: 0 -26px; padding: 0 26px; scrollbar-width: none; }
+    .strip::-webkit-scrollbar { display: none; }
+    .strip .cell { flex: 0 0 82%; aspect-ratio: 4 / 5; scroll-snap-align: start; }
+    .dots { display: flex; gap: 6px; justify-content: center; margin-top: 14px; }
+    .dot { width: 5px; height: 5px; border-radius: 50%; background: #3a3733; }
+    .dot.on { background: #F2EDE6; }
+    .hint { text-align: center; color: #6A655F; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 10px; }
+
+    /* 2: мозаика */
+    .mosaic { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .mosaic .big { grid-column: 1 / -1; aspect-ratio: 4 / 5; }
+    .mosaic .sm { aspect-ratio: 4 / 5; }
+
+    /* 3: одна колонка */
+    .stack { display: flex; flex-direction: column; gap: 10px; }
+    .stack .cell { aspect-ratio: 4 / 5; }
+    .stack .cap { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #6A655F; margin: 2px 0 6px; }
+    .more { display: inline-block; margin-top: 14px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #C7C2BB; border-bottom: 1px solid rgba(255,255,255,.3); padding-bottom: 3px; }
+  </style>
+</head>
+
+<body>
+  <p class="intro">Три варианта галереи для телефона. Экраны прокручиваются внутри рамок. Сейчас на телефоне восемь фото в две колонки — длинная стена мелких плиток; во всех вариантах их меньше и они крупнее.</p>
+
+  <div class="row">
+    <!-- 1 -->
+    <div class="col">
+      <span class="label">1 — лента, как в инстаграме</span>
+      <p class="note">Один кадр во весь экран, следующий выглядывает справа — палец сам тянется листать. В категории 4-5 фото, точки под лентой. Категории переключаются капсулами.</p>
+      <div class="phone"><div class="screen">
+        <h2>Photos always have their voice</h2>
+        <div class="pills"><span class="pill">Family</span><span class="pill on">Love, love, love</span><span class="pill">Now, wedding</span></div>
+        <div class="strip">
+          <div class="cell">фото 1</div><div class="cell">фото 2</div><div class="cell">фото 3</div><div class="cell">фото 4</div><div class="cell">фото 5</div>
+        </div>
+        <div class="dots"><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <div class="hint">swipe →</div>
+      </div></div>
+    </div>
+
+    <!-- 2 -->
+    <div class="col">
+      <span class="label">2 — мозаика</span>
+      <p class="note">Шесть фото: один крупный кадр на всю ширину, под ним два маленьких, и ещё раз. Ритм «большой — два малых» читается как разворот журнала, а не как каталог.</p>
+      <div class="phone"><div class="screen">
+        <h2>Photos always have their voice</h2>
+        <div class="pills"><span class="pill">Family</span><span class="pill on">Love, love, love</span><span class="pill">Now, wedding</span></div>
+        <div class="mosaic">
+          <div class="cell big">фото 1</div>
+          <div class="cell sm">фото 2</div><div class="cell sm">фото 3</div>
+          <div class="cell big">фото 4</div>
+          <div class="cell sm">фото 5</div><div class="cell sm">фото 6</div>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- 3 -->
+    <div class="col">
+      <span class="label">3 — одна колонка, 4 кадра</span>
+      <p class="note">Четыре фото друг под другом, каждое во всю ширину. Максимально крупно и спокойно, зато блок длиннее. Внизу ссылка «see more» — для тех, кому мало.</p>
+      <div class="phone"><div class="screen">
+        <h2>Photos always have their voice</h2>
+        <div class="pills"><span class="pill">Family</span><span class="pill on">Love, love, love</span><span class="pill">Now, wedding</span></div>
+        <div class="stack">
+          <div class="cell">фото 1</div><div class="cell">фото 2</div><div class="cell">фото 3</div><div class="cell">фото 4</div>
+        </div>
+        <span class="more">See more on Instagram →</span>
+      </div></div>
+    </div>
+  </div>
+</body>
+
+</html>

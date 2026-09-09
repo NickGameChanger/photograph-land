@@ -53,11 +53,49 @@ const SLIDES = CATEGORIES.map((category) => ({ ...category, photos: buildGrid(ca
 
 const SWIPE_THRESHOLD = 50;   // px, короче — считаем случайным касанием
 const ANIMATION_MS = 500;     // должно совпадать с длительностью в Portfolio.css
+const MOBILE_QUERY = '(max-width: 720px)';
+const MOBILE_PHOTOS = 5;      // сколько кадров показываем в ленте на телефоне
 
 const Portfolio = forwardRef((props, ref) => {
   const [active, setActive] = useState(1);  // по умолчанию Love
   const [anim, setAnim] = useState(null);   // { from, dir } — пока едет анимация
   const animationTimer = useRef(null);
+
+  // на телефоне галерея — горизонтальная лента, а не карусель категорий
+  const [isMobile, setIsMobile] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia(MOBILE_QUERY).matches
+  );
+  const [stripIndex, setStripIndex] = useState(0);
+  const stripRef = useRef(null);
+
+  useEffect(() => {
+    const mq = window.matchMedia(MOBILE_QUERY);
+    const onChange = (e) => setIsMobile(e.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+
+  // при смене категории лента начинается с первого кадра
+  useEffect(() => {
+    if (stripRef.current) stripRef.current.scrollTo({ left: 0, behavior: 'instant' });
+    setStripIndex(0);
+  }, [active]);
+
+  const handleStripScroll = () => {
+    const el = stripRef.current;
+    if (!el || !el.firstElementChild) return;
+    const cell = el.firstElementChild;
+    const stepWidth = cell.getBoundingClientRect().width + parseFloat(getComputedStyle(el).columnGap || 0);
+    setStripIndex(Math.round(el.scrollLeft / stepWidth));
+  };
+
+  const scrollStripTo = (index) => {
+    const el = stripRef.current;
+    if (!el || !el.firstElementChild) return;
+    const cell = el.firstElementChild;
+    const stepWidth = cell.getBoundingClientRect().width + parseFloat(getComputedStyle(el).columnGap || 0);
+    el.scrollTo({ left: index * stepWidth, behavior: 'smooth' });
+  };
 
   useEffect(() => {
     SLIDES.forEach((slide) => {
@@ -104,6 +142,7 @@ const Portfolio = forwardRef((props, ref) => {
     const onWheel = (e) => {
       // вертикальную прокрутку не трогаем — страница должна скроллиться как обычно
       if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+      if (window.matchMedia(MOBILE_QUERY).matches) return;
       e.preventDefault();
       if (wheelLock.current) return;
 
@@ -130,6 +169,7 @@ const Portfolio = forwardRef((props, ref) => {
   const pointerStart = useRef(null);
 
   const handlePointerDown = (e) => {
+    if (isMobile) return;
     pointerStart.current = { x: e.clientX, y: e.clientY };
   };
 
@@ -186,20 +226,43 @@ const Portfolio = forwardRef((props, ref) => {
           ))}
         </div>
 
-        <div
-          className='gallery_viewport'
-          data-reveal
-          style={{ '--reveal-delay': '200ms' }}
-          ref={viewportRef}
-          onPointerDown={handlePointerDown}
-          onPointerUp={handlePointerUp}
-          onPointerCancel={() => { pointerStart.current = null; }}
-          onPointerLeave={() => { pointerStart.current = null; }}
-        >
-          <div className={trackClass} key={anim ? `${anim.from}-${active}` : `still-${active}`}>
-            {panels.map((slide) => renderGrid(slide))}
+        {isMobile ? (
+          <div className='strip_wrap' data-reveal style={{ '--reveal-delay': '200ms' }}>
+            <div className='strip' ref={stripRef} onScroll={handleStripScroll}>
+              {SLIDES[active].photos.slice(0, MOBILE_PHOTOS).map((photo) => (
+                <div className='strip_cell' key={photo.id}>
+                  <img src={photo.imgSrc} alt={photo.alt} loading='lazy' draggable='false' />
+                </div>
+              ))}
+            </div>
+            <div className='strip_dots' aria-hidden='true'>
+              {SLIDES[active].photos.slice(0, MOBILE_PHOTOS).map((photo, index) => (
+                <button
+                  type='button'
+                  key={photo.id}
+                  className={index === stripIndex ? 'strip_dot is-active' : 'strip_dot'}
+                  onClick={() => scrollStripTo(index)}
+                  tabIndex={-1}
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        ) : (
+          <div
+            className='gallery_viewport'
+            data-reveal
+            style={{ '--reveal-delay': '200ms' }}
+            ref={viewportRef}
+            onPointerDown={handlePointerDown}
+            onPointerUp={handlePointerUp}
+            onPointerCancel={() => { pointerStart.current = null; }}
+            onPointerLeave={() => { pointerStart.current = null; }}
+          >
+            <div className={trackClass} key={anim ? `${anim.from}-${active}` : `still-${active}`}>
+              {panels.map((slide) => renderGrid(slide))}
+            </div>
+          </div>
+        )}
 
       </div>
     </section>
