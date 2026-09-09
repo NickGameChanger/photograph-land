@@ -149,15 +149,15 @@
     padding-top: 28px;
     border-top: 0.5px solid rgba(255, 255, 255, 0.18);
     width: 100%;
-    color: #C7C2BB;
+    color: #8A857E;
     font-family: 'Poppins', Helvetica, sans-serif;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 300;
-    line-height: 160%;
+    line-height: 165%;
 }
 
 #pricing .pricing_note span {
-    color: #F2EDE6;
+    color: #C7C2BB;
     font-weight: 400;
 }
 
@@ -244,8 +244,9 @@
     }
 
     #pricing .pricing_note {
-        margin-top: 32px;
-        padding-top: 20px;
-        font-size: 13px;
+        margin-top: 28px;
+        padding-top: 16px;
+        font-size: 11px;
+        line-height: 160%;
     }
 }
