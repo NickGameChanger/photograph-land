@@ -75,26 +75,55 @@ const Portfolio = forwardRef((props, ref) => {
     return () => mq.removeEventListener('change', onChange);
   }, []);
 
-  // при смене категории лента начинается с первого кадра
+  // Лента зациклена: в начало добавлен клон последнего кадра, в конец — клон
+  // первого. Когда прокрутка останавливается на клоне, мгновенно перепрыгиваем
+  // на настоящий кадр — визуально это незаметно, а соседи всегда есть с обеих
+  // сторон, в том числе у первого и последнего фото.
+  const mobilePhotos = SLIDES[active].photos.slice(0, MOBILE_PHOTOS);
+  const loopPhotos = [
+    { ...mobilePhotos[mobilePhotos.length - 1], id: 'clone-last' },
+    ...mobilePhotos,
+    { ...mobilePhotos[0], id: 'clone-first' },
+  ];
+  const settleTimer = useRef(null);
+
+  const stripStep = () => {
+    const el = stripRef.current;
+    if (!el || !el.firstElementChild) return 0;
+    return el.firstElementChild.getBoundingClientRect().width
+      + parseFloat(getComputedStyle(el).columnGap || 0);
+  };
+
+  // при смене категории (и при первом показе) встаём на настоящий первый кадр
   useEffect(() => {
-    if (stripRef.current) stripRef.current.scrollTo({ left: 0, behavior: 'instant' });
-    setStripIndex(0);
-  }, [active]);
+    if (!isMobile) return undefined;
+    const raf = requestAnimationFrame(() => {
+      const el = stripRef.current;
+      if (el) el.scrollTo({ left: stripStep(), behavior: 'instant' });
+      setStripIndex(0);
+    });
+    return () => cancelAnimationFrame(raf);
+  }, [active, isMobile]);
 
   const handleStripScroll = () => {
     const el = stripRef.current;
-    if (!el || !el.firstElementChild) return;
-    const cell = el.firstElementChild;
-    const stepWidth = cell.getBoundingClientRect().width + parseFloat(getComputedStyle(el).columnGap || 0);
-    setStripIndex(Math.round(el.scrollLeft / stepWidth));
+    const step = stripStep();
+    if (!el || !step) return;
+    const raw = Math.round(el.scrollLeft / step);          // 0..n+1 с учётом клонов
+    const count = mobilePhotos.length;
+    setStripIndex((raw - 1 + count) % count);
+
+    clearTimeout(settleTimer.current);
+    settleTimer.current = setTimeout(() => {
+      if (raw === 0) el.scrollTo({ left: count * step, behavior: 'instant' });
+      else if (raw === count + 1) el.scrollTo({ left: step, behavior: 'instant' });
+    }, 120);
   };
 
   const scrollStripTo = (index) => {
     const el = stripRef.current;
-    if (!el || !el.firstElementChild) return;
-    const cell = el.firstElementChild;
-    const stepWidth = cell.getBoundingClientRect().width + parseFloat(getComputedStyle(el).columnGap || 0);
-    el.scrollTo({ left: index * stepWidth, behavior: 'smooth' });
+    const step = stripStep();
+    if (el && step) el.scrollTo({ left: (index + 1) * step, behavior: 'smooth' });
   };
 
   useEffect(() => {
@@ -104,7 +133,10 @@ const Portfolio = forwardRef((props, ref) => {
         img.src = photo.imgSrc;
       });
     });
-    return () => clearTimeout(animationTimer.current);
+    return () => {
+      clearTimeout(animationTimer.current);
+      clearTimeout(settleTimer.current);
+    };
   }, []);
 
   const goTo = (nextIndex, dir) => {
@@ -229,14 +261,14 @@ const Portfolio = forwardRef((props, ref) => {
         {isMobile ? (
           <div className='strip_wrap' data-reveal style={{ '--reveal-delay': '200ms' }}>
             <div className='strip' ref={stripRef} onScroll={handleStripScroll}>
-              {SLIDES[active].photos.slice(0, MOBILE_PHOTOS).map((photo) => (
+              {loopPhotos.map((photo) => (
                 <div className='strip_cell' key={photo.id}>
                   <img src={photo.imgSrc} alt={photo.alt} loading='lazy' draggable='false' />
                 </div>
               ))}
             </div>
             <div className='strip_dots' aria-hidden='true'>
-              {SLIDES[active].photos.slice(0, MOBILE_PHOTOS).map((photo, index) => (
+              {mobilePhotos.map((photo, index) => (
                 <button
                   type='button'
                   key={photo.id}
