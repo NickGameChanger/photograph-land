@@ -17,10 +17,6 @@ import love_r1_p4 from "./love_r1_p4.jpg";
 import love_r2_p2 from "./love_r2_p2.jpg";
 import love_r2_p3 from "./love_r2_p3.jpg";
 import love_r2_p4 from "./love_r2_p4.jpg";
-import wed_r1_p2 from "./wed_r1_p2.jpg";
-import wed_r1_p3 from "./wed_r1_p3.jpg";
-import wed_r2_p3 from "./wed_r2_p3.jpg";
-import wed_r2_p4 from "./wed_r2_p4.jpg";
 
 // фото карточек в блоке Services («Those who matter») — заменяются отдельно
 import price_p1 from "./price_p1.jpg";
@@ -39,7 +35,7 @@ export {
     aboutMain,
     footer_alina,
     header_photo,
-    family_r1_p1, family_r1_p2, family_r1_p3, family_r1_p4, family_r2_p1, family_r2_p2, family_r2_p4, love_r1_p1, love_r1_p2, love_r1_p3, love_r1_p4, love_r2_p2, love_r2_p3, love_r2_p4, wed_r1_p2, wed_r1_p3, wed_r2_p3, wed_r2_p4,
+    family_r1_p1, family_r1_p2, family_r1_p3, family_r1_p4, family_r2_p1, family_r2_p2, family_r2_p4, love_r1_p1, love_r1_p2, love_r1_p3, love_r1_p4, love_r2_p2, love_r2_p3, love_r2_p4,
     price_p1, price_p2, price_p3,
     portrait_alina1, portrait_alina2, portrait_alina3, portrait_alina4,
     menuIcon, closeIcon
