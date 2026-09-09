@@ -136,7 +136,7 @@ const Portfolio = forwardRef((props, ref) => {
 
   const reduceMotion = typeof window !== 'undefined'
     && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const autoplay = onScreen && !reduceMotion;
+  const autoplay = isMobile && onScreen && !reduceMotion;
 
   return (
     <section id='portfolio' ref={ref}>
@@ -167,6 +167,9 @@ const Portfolio = forwardRef((props, ref) => {
             ))}
           </div>
 
+          {/* панель с точками и автопрокруткой — только на телефоне:
+              на десктопе 14 точек превращаются в гусеницу */}
+          {isMobile && (
           <div className={paused ? 'strip_nav is-paused' : 'strip_nav'}>
             <button type='button' className='strip_arrow' onClick={prev} aria-label='Предыдущее фото'>
               <svg width='14' height='14' viewBox='0 0 14 14' fill='none' aria-hidden='true'>
@@ -199,6 +202,7 @@ const Portfolio = forwardRef((props, ref) => {
               </svg>
             </button>
           </div>
+          )}
         </div>
 
       </div>
