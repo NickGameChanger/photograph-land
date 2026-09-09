@@ -1,22 +1,49 @@
 import { forwardRef, useState, useRef, useEffect } from 'react';
 import "./Portfolio.css"
 import {
-  love_r1_p1, love_r1_p3, love_r2_p2, love_r2_p3,
-  family_r1_p3, family_r2_p2,
-  wed_r1_p2, wed_r2_p1,
+  love_r1_p1,
+  family_r1_p1,
+  wed_r1_p1,
+  love_r1_p2,
+  family_r1_p2,
+  wed_r1_p2,
+  love_r1_p3,
+  family_r1_p3,
+  wed_r1_p3,
+  love_r1_p4,
+  family_r1_p4,
+  wed_r2_p3,
+  love_r2_p2,
+  family_r2_p1,
+  wed_r2_p4,
+  love_r2_p3,
+  family_r2_p2,
+  love_r2_p4,
+  family_r2_p4
 } from '../../assets';
 
 // Одна подборка вместо трёх категорий. Порядок = порядок в ленте.
 // Заменить кадр — поменять импорт и строку здесь.
 const PHOTOS = [
-  { src: love_r1_p1,   alt: 'Couple with their dog, love story session in Belgrade' },
-  { src: family_r1_p3, alt: 'Family photo session in Belgrade' },
-  { src: wed_r1_p2,    alt: 'Wedding photography in Belgrade' },
-  { src: love_r2_p3,   alt: 'Love story photo session in Belgrade' },
-  { src: family_r2_p2, alt: 'Family portrait session in Belgrade' },
-  { src: love_r1_p3,   alt: 'Couple session in natural light, Belgrade' },
-  { src: wed_r2_p1,    alt: 'Wedding day photography in Belgrade' },
-  { src: love_r2_p2,   alt: 'Love story session by linanoon photography' },
+  { src: love_r1_p1, alt: 'Love story photo session in Belgrade by linanoon photography' },
+  { src: family_r1_p1, alt: 'Family photo session in Belgrade by linanoon photography' },
+  { src: wed_r1_p1, alt: 'Wedding photography in Belgrade by linanoon photography' },
+  { src: love_r1_p2, alt: 'Love story photo session in Belgrade by linanoon photography' },
+  { src: family_r1_p2, alt: 'Family photo session in Belgrade by linanoon photography' },
+  { src: wed_r1_p2, alt: 'Wedding photography in Belgrade by linanoon photography' },
+  { src: love_r1_p3, alt: 'Love story photo session in Belgrade by linanoon photography' },
+  { src: family_r1_p3, alt: 'Family photo session in Belgrade by linanoon photography' },
+  { src: wed_r1_p3, alt: 'Wedding photography in Belgrade by linanoon photography' },
+  { src: love_r1_p4, alt: 'Love story photo session in Belgrade by linanoon photography' },
+  { src: family_r1_p4, alt: 'Family photo session in Belgrade by linanoon photography' },
+  { src: wed_r2_p3, alt: 'Wedding photography in Belgrade by linanoon photography' },
+  { src: love_r2_p2, alt: 'Love story photo session in Belgrade by linanoon photography' },
+  { src: family_r2_p1, alt: 'Family photo session in Belgrade by linanoon photography' },
+  { src: wed_r2_p4, alt: 'Wedding photography in Belgrade by linanoon photography' },
+  { src: love_r2_p3, alt: 'Love story photo session in Belgrade by linanoon photography' },
+  { src: family_r2_p2, alt: 'Family photo session in Belgrade by linanoon photography' },
+  { src: love_r2_p4, alt: 'Love story photo session in Belgrade by linanoon photography' },
+  { src: family_r2_p4, alt: 'Family photo session in Belgrade by linanoon photography' },
 ].map((p, i) => ({ ...p, id: `photo-${i + 1}` }));
 
 const MOBILE_QUERY = '(max-width: 720px)';
