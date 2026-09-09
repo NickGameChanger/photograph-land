@@ -176,25 +176,20 @@ const Portfolio = forwardRef((props, ref) => {
                 <path d='M12 7H2m4-4L2 7l4 4' stroke='currentColor' strokeWidth='1.3' strokeLinecap='round' strokeLinejoin='round' />
               </svg>
             </button>
-            <div className='strip_dots' aria-hidden='true'>
-              {PHOTOS.map((photo, i) => (
-                <button
-                  type='button'
-                  key={photo.id}
-                  className={i === index ? 'strip_dot is-active' : 'strip_dot'}
-                  onClick={() => goTo(i)}
-                  tabIndex={-1}
-                >
-                  {i === index && autoplay && (
-                    <span
-                      className='strip_fill'
-                      key={`fill-${index}`}
-                      style={{ animationDuration: `${AUTOPLAY_MS}ms` }}
-                      onAnimationEnd={next}
-                    />
-                  )}
-                </button>
-              ))}
+            <div className='strip_progress' aria-hidden='true'>
+              <span className='strip_bar'>
+                {autoplay && (
+                  <span
+                    className='strip_fill'
+                    key={`fill-${index}`}
+                    style={{ animationDuration: `${AUTOPLAY_MS}ms` }}
+                    onAnimationEnd={next}
+                  />
+                )}
+              </span>
+              <span className='strip_counter'>
+                {String(index + 1).padStart(2, '0')} / {String(count).padStart(2, '0')}
+              </span>
             </div>
             <button type='button' className='strip_arrow' onClick={next} aria-label='Следующее фото'>
               <svg width='14' height='14' viewBox='0 0 14 14' fill='none' aria-hidden='true'>

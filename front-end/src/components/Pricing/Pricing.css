@@ -174,7 +174,17 @@
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1040px) {
+    #pricing .plans_grid {
+        gap: 24px;
+    }
+
+    #pricing .plan_photo {
+        height: 240px;
+    }
+}
+
+@media (max-width: 720px) {
     #pricing .plans_grid {
         flex-direction: column;
         gap: 48px;

@@ -22,7 +22,6 @@ const About = ({ about_ref, request_ref }) => {
               </div>
               <div className='simple_container'>
                 <p>I’m a Belgrade-based photographer who loves road trips, hiking in the mountains, and black coffee in cute mugs.</p>
-                <br></br>
                 <p>
                   Photography is my constant love. I’m here to take the nervousness out of being photographed: no stiff posing, no “smile now” — just you being you, and me catching it. The glances, the laughs, the way you hold each other.
                 </p>

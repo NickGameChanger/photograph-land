@@ -8,12 +8,13 @@
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
+    padding: 0 30px;
     display: flex;
     justify-content: center;
 }
 
 #about .wrapper2 {
-    margin: 30px 30px 40px 30px;
+    margin: 30px 0 40px;
     width: 100%;
     max-width: 1232px;
     height: auto;
@@ -124,6 +125,7 @@
 }
 
 #about .wrapper2 .first_block p {
+    margin: 0 0 14px;
     color: var(--light-primary-color-70, #C7C2BB);
 
     /* Body/Body 1 Regular */
@@ -159,46 +161,40 @@
 }
 
 @media (max-width: 1240px) {
-    #about .wrapper2 .photos_line {
-        max-width: 100%;
-        height: auto;
+    #about .wrapper {
+        padding: 0 20px;
     }
 
     #about .wrapper2 {
-        width: 100%;
-        margin: 15px 15px 15px 15px;
-        height: auto;
+        margin: 24px 0 32px;
     }
 
     #about .wrapper2 .first_block {
-        margin: 20px 40px 40px 20px;
-        gap: 45px
-    }
-
-    #about .wrapper2 .first_block .simple_container {
-        width: 70%;
-        height: auto;
-        margin-bottom: 30px;
-    }
-
-    .wrapper {
-        max-width: 100%
+        padding: 32px;
+        gap: 36px;
     }
 
     #about .wrapper2 .first_block img {
         width: 34%;
     }
 
-    /* #about .wrapper2 {
+    #about .wrapper2 .first_block .simple_container {
         width: 100%;
-        height: auto;
-    } */
+    }
+
+    #about .wrapper2 .photos_line {
+        gap: 16px;
+    }
 }
 
 @media (max-width: 720px) {
     #about .wrapper {
         width: 100%;
         height: auto;
+    }
+
+    #about .wrapper {
+        padding: 0 var(--gutter);
     }
 
     #about .wrapper2 {
@@ -213,7 +209,7 @@
     #about .wrapper2 .first_block {
         display: flex;
         flex-direction: column;
-        margin: 0 16px;
+        margin: 0;
         gap: 0;
     }
 
@@ -283,7 +279,7 @@
 
 @media (max-width: 720px) {
     #about .wrapper2 .first_block {
-        margin: 0 var(--gutter);
+        margin: 0;
     }
 
     #about .wrapper2 .first_block {
@@ -321,7 +317,7 @@
     }
 
     #about .wrapper2 .photos_line {
-        margin: 24px var(--gutter) 0;
+        margin: 24px 0 0;
         gap: 20px;
     }
 }
