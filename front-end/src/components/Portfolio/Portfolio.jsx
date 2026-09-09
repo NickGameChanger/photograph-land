@@ -55,6 +55,7 @@ const SWIPE_THRESHOLD = 50;   // px, короче — считаем случа�
 const ANIMATION_MS = 500;     // должно совпадать с длительностью в Portfolio.css
 const MOBILE_QUERY = '(max-width: 720px)';
 const MOBILE_PHOTOS = 5;      // сколько кадров показываем в ленте на телефоне
+const AUTOPLAY_MS = 4500;     // через сколько лента сама переходит к следующему кадру
 
 const Portfolio = forwardRef((props, ref) => {
   const [active, setActive] = useState(1);  // по умолчанию Love
@@ -126,6 +127,57 @@ const Portfolio = forwardRef((props, ref) => {
     if (el && step) el.scrollTo({ left: (index + 1) * step, behavior: 'smooth' });
   };
 
+  // вперёд/назад с переходом через край: едем на клон, а settle-таймер
+  // потом незаметно перепрыгивает на настоящий кадр
+  const stripNext = () => {
+    const el = stripRef.current;
+    const step = stripStep();
+    const count = mobilePhotos.length;
+    if (!el || !step) return;
+    const target = stripIndex === count - 1 ? count + 1 : stripIndex + 2;
+    el.scrollTo({ left: target * step, behavior: 'smooth' });
+  };
+
+  const stripPrev = () => {
+    const el = stripRef.current;
+    const step = stripStep();
+    if (!el || !step) return;
+    const target = stripIndex === 0 ? 0 : stripIndex;
+    el.scrollTo({ left: target * step, behavior: 'smooth' });
+  };
+
+  // автопрокрутка: полоса на активной точке заполняется, по её окончании — следующий кадр.
+  // Пауза, пока палец на ленте, и вообще не крутим, если лента не на экране
+  // или человек просил систему не анимировать
+  const [stripPaused, setStripPaused] = useState(false);
+  const [stripOnScreen, setStripOnScreen] = useState(false);
+  const stripWrapRef = useRef(null);
+  const pauseTimer = useRef(null);
+  const reduceMotion = typeof window !== 'undefined'
+    && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  useEffect(() => {
+    if (!isMobile || !stripWrapRef.current || !('IntersectionObserver' in window)) return undefined;
+    const io = new IntersectionObserver(
+      ([entry]) => setStripOnScreen(entry.isIntersecting),
+      { threshold: 0.4 }
+    );
+    io.observe(stripWrapRef.current);
+    return () => io.disconnect();
+  }, [isMobile]);
+
+  const pauseStrip = () => {
+    clearTimeout(pauseTimer.current);
+    setStripPaused(true);
+  };
+
+  const resumeStrip = () => {
+    clearTimeout(pauseTimer.current);
+    pauseTimer.current = setTimeout(() => setStripPaused(false), 1800);
+  };
+
+  const autoplayOn = isMobile && stripOnScreen && !reduceMotion;
+
   useEffect(() => {
     SLIDES.forEach((slide) => {
       slide.photos.forEach((photo) => {
@@ -136,6 +188,7 @@ const Portfolio = forwardRef((props, ref) => {
     return () => {
       clearTimeout(animationTimer.current);
       clearTimeout(settleTimer.current);
+      clearTimeout(pauseTimer.current);
     };
   }, []);
 
@@ -259,24 +312,55 @@ const Portfolio = forwardRef((props, ref) => {
         </div>
 
         {isMobile ? (
-          <div className='strip_wrap' data-reveal style={{ '--reveal-delay': '200ms' }}>
-            <div className='strip' ref={stripRef} onScroll={handleStripScroll}>
+          <div className='strip_wrap' data-reveal style={{ '--reveal-delay': '200ms' }} ref={stripWrapRef}>
+            <div
+              className='strip'
+              ref={stripRef}
+              onScroll={handleStripScroll}
+              onPointerDown={pauseStrip}
+              onPointerUp={resumeStrip}
+              onPointerCancel={resumeStrip}
+              onTouchStart={pauseStrip}
+              onTouchEnd={resumeStrip}
+            >
               {loopPhotos.map((photo) => (
                 <div className='strip_cell' key={photo.id}>
                   <img src={photo.imgSrc} alt={photo.alt} loading='lazy' draggable='false' />
                 </div>
               ))}
             </div>
-            <div className='strip_dots' aria-hidden='true'>
-              {mobilePhotos.map((photo, index) => (
-                <button
-                  type='button'
-                  key={photo.id}
-                  className={index === stripIndex ? 'strip_dot is-active' : 'strip_dot'}
-                  onClick={() => scrollStripTo(index)}
-                  tabIndex={-1}
-                />
-              ))}
+
+            <div className={stripPaused ? 'strip_nav is-paused' : 'strip_nav'}>
+              <button type='button' className='strip_arrow' onClick={stripPrev} aria-label='Предыдущее фото'>
+                <svg width='14' height='14' viewBox='0 0 14 14' fill='none' aria-hidden='true'>
+                  <path d='M12 7H2m4-4L2 7l4 4' stroke='currentColor' strokeWidth='1.3' strokeLinecap='round' strokeLinejoin='round' />
+                </svg>
+              </button>
+              <div className='strip_dots' aria-hidden='true'>
+                {mobilePhotos.map((photo, index) => (
+                  <button
+                    type='button'
+                    key={photo.id}
+                    className={index === stripIndex ? 'strip_dot is-active' : 'strip_dot'}
+                    onClick={() => scrollStripTo(index)}
+                    tabIndex={-1}
+                  >
+                    {index === stripIndex && autoplayOn && (
+                      <span
+                        className='strip_fill'
+                        key={`${active}-${stripIndex}`}
+                        style={{ animationDuration: `${AUTOPLAY_MS}ms` }}
+                        onAnimationEnd={stripNext}
+                      />
+                    )}
+                  </button>
+                ))}
+              </div>
+              <button type='button' className='strip_arrow' onClick={stripNext} aria-label='Следующее фото'>
+                <svg width='14' height='14' viewBox='0 0 14 14' fill='none' aria-hidden='true'>
+                  <path d='M2 7h10M8 3l4 4-4 4' stroke='currentColor' strokeWidth='1.3' strokeLinecap='round' strokeLinejoin='round' />
+                </svg>
+              </button>
             </div>
           </div>
         ) : (

@@ -245,24 +245,74 @@
         display: block;
     }
 
+    /* панель управления: стрелки, точки, на активной — заполняющаяся полоса */
+    #portfolio .strip_nav {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: fit-content;
+        margin: 18px auto 0;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+    }
+
+    #portfolio .strip_arrow {
+        width: 28px;
+        height: 28px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        background: transparent;
+        color: #C7C2BB;
+    }
+
+    #portfolio .strip_arrow:active {
+        color: #FFFFFF;
+    }
+
     #portfolio .strip_dots {
         display: flex;
-        gap: 6px;
-        justify-content: center;
-        margin-top: 16px;
+        align-items: center;
+        gap: 8px;
     }
 
     #portfolio .strip_dot {
+        position: relative;
         width: 6px;
         height: 6px;
         padding: 0;
         border: 0;
-        border-radius: 50%;
-        background: #3A3733;
-        transition: background-color 0.25s ease;
+        border-radius: 999px;
+        background: #4A4640;
+        overflow: hidden;
+        transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.25s ease;
     }
 
     #portfolio .strip_dot.is-active {
+        width: 44px;
+        background: #3A3733;
+    }
+
+    /* заполнение = таймер до следующего кадра */
+    #portfolio .strip_fill {
+        position: absolute;
+        inset: 0;
+        border-radius: 999px;
         background: #F2EDE6;
+        transform-origin: left center;
+        animation: pf-strip-fill 4.5s linear forwards;
+    }
+
+    #portfolio .strip_nav.is-paused .strip_fill {
+        animation-play-state: paused;
+    }
+
+    @keyframes pf-strip-fill {
+        from { transform: scaleX(0); }
+        to   { transform: scaleX(1); }
     }
 }
