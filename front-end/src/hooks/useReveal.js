@@ -8,10 +8,14 @@ import { useEffect } from 'react';
 export default function useReveal() {
   useEffect(() => {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const nodes = Array.from(document.querySelectorAll('[data-reveal]'));
+    const supportsIO = 'IntersectionObserver' in window;
 
-    if (reduceMotion || !('IntersectionObserver' in window)) {
-      nodes.forEach((n) => n.classList.add('is-visible'));
+    const showAll = () => {
+      document.querySelectorAll('[data-reveal]').forEach((n) => n.classList.add('is-visible'));
+    };
+
+    if (reduceMotion || !supportsIO) {
+      showAll();
       return undefined;
     }
 
@@ -24,20 +28,38 @@ export default function useReveal() {
       });
     }, { rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
 
-    nodes.forEach((n) => io.observe(n));
+    const observe = (node) => {
+      if (!node.classList.contains('is-visible')) io.observe(node);
+    };
 
-    // страховка: если наблюдатель по какой-то причине не сработал
-    // (встроенный браузер, свёрнутая вкладка), то, что уже на экране,
-    // показываем принудительно — контент не должен остаться невидимым
+    document.querySelectorAll('[data-reveal]').forEach(observe);
+
+    // блоки, которые React монтирует позже (например, мобильная лента
+    // появляется при смене ширины окна), тоже должны попасть под наблюдение —
+    // иначе они навсегда останутся прозрачными
+    const mo = new MutationObserver((mutations) => {
+      mutations.forEach((m) => {
+        m.addedNodes.forEach((node) => {
+          if (node.nodeType !== 1) return;
+          if (node.matches('[data-reveal]')) observe(node);
+          node.querySelectorAll('[data-reveal]').forEach(observe);
+        });
+      });
+    });
+    mo.observe(document.body, { childList: true, subtree: true });
+
+    // страховка: то, что уже на экране, показываем через полторы секунды
+    // принудительно — контент не должен остаться невидимым
     const fallback = setTimeout(() => {
       const limit = window.innerHeight * 1.1;
-      nodes.forEach((n) => {
+      document.querySelectorAll('[data-reveal]').forEach((n) => {
         if (n.getBoundingClientRect().top < limit) n.classList.add('is-visible');
       });
     }, 1500);
 
     return () => {
       io.disconnect();
+      mo.disconnect();
       clearTimeout(fallback);
     };
   }, []);
