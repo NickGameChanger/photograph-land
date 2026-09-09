@@ -53,9 +53,9 @@ const Portfolio = forwardRef((props, ref) => {
 
   // Лента зациклена: по краям лежат копии крайних кадров. На телефоне видно
   // один кадр — хватает одной копии с каждой стороны; на десктопе видно
-  // четыре — копируем по четыре, чтобы на стыке не было пустоты.
+  // три — копируем по три, чтобы на стыке не было пустоты.
   const count = PHOTOS.length;
-  const clones = isMobile ? 1 : 4;
+  const clones = isMobile ? 1 : 3;
   const loop = [
     ...PHOTOS.slice(count - clones).map((p) => ({ ...p, id: `${p.id}-before` })),
     ...PHOTOS,
