@@ -165,7 +165,7 @@
 
 @media (max-width: 720px) {
     #approach .wrapper {
-        margin: 8px 18px 16px;
+        margin: 8px var(--gutter) 16px;
     }
 
     #approach .steps {

@@ -275,7 +275,7 @@
 
 @media (max-width: 720px) {
     #about .wrapper2 .first_block {
-        margin: 0 18px;
+        margin: 0 var(--gutter);
     }
 
     #about .wrapper2 .first_block img {
@@ -283,7 +283,7 @@
     }
 
     #about .wrapper2 .about_section {
-        padding: 20px 18px 24px;
+        padding: 22px 20px 26px;
     }
 
     #about .wrapper2 .first_block .header_section h2 {
@@ -305,7 +305,7 @@
     }
 
     #about .wrapper2 .photos_line {
-        margin: 12px 18px 0;
+        margin: 12px var(--gutter) 0;
         gap: 8px;
     }
 }

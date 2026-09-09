@@ -129,7 +129,7 @@ header .hero_btn:hover {
     }
 
     header .hero {
-        padding: 0 18px 36px;
+        padding: 0 var(--gutter) 40px;
     }
 
     header .hero_eyebrow {

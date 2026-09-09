@@ -282,7 +282,7 @@
   .navbar.is-scrolled {
     position: absolute;
     background-color: transparent;
-    padding: 14px 18px;
+    padding: 14px var(--gutter);
   }
 
   .logo .text-wrapper {

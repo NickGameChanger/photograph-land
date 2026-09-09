@@ -430,6 +430,8 @@ section h2 {
 /* ===== мобильная шкала: всё чуть мельче, чем на десктопе ===== */
 @media (max-width: 720px) {
   :root {
+    /* боковой отступ контента на телефоне — один на все блоки */
+    --gutter: 28px;
     --btn-padding: 11px 20px;
     --btn-font-size: 11px;
     --btn-letter-spacing: 1.2px;

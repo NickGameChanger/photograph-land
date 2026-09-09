@@ -117,7 +117,7 @@ footer .footer_bottom {
 
 @media (max-width: 720px) {
     footer .wrapper {
-        padding: 40px 18px 22px;
+        padding: 44px var(--gutter) 24px;
     }
 
     footer .footer_cols {

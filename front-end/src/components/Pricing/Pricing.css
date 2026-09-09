@@ -192,8 +192,8 @@
 
 @media (max-width: 720px) {
     #pricing .wrapper {
-        margin: 40px auto;
-        padding: 0 18px;
+        margin: 44px auto;
+        padding: 0 var(--gutter);
     }
 
     #pricing .header_section {

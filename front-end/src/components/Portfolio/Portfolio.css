@@ -185,8 +185,8 @@
 
 @media (max-width: 720px) {
     #portfolio .wrapper {
-        margin: 36px auto;
-        padding: 0 18px;
+        margin: 40px auto;
+        padding: 0 var(--gutter);
     }
 
     #portfolio .header_section {

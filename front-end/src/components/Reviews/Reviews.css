@@ -122,7 +122,7 @@
 
 @media (max-width: 720px) {
     #reviews .wrapper {
-        padding: 0 18px;
+        padding: 0 var(--gutter);
     }
 
     #reviews .header_section {

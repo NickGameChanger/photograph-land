@@ -298,7 +298,7 @@
 
 @media (max-width: 720px) {
     #request .wrapper {
-        padding: 40px 18px 48px;
+        padding: 44px var(--gutter) 52px;
         gap: 24px;
     }
 
