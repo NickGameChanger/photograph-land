@@ -58,7 +58,10 @@
 
 
 #about .wrapper2 .photos_line img {
-    flex: 1;
+    flex: 1 1 0;
+    /* без этого картинка не ужимается меньше своей исходной ширины,
+       и на ноутбуках ряд из четырёх вылезал за край экрана */
+    min-width: 0;
     width: auto;
     height: auto;
     aspect-ratio: 1 / 1;
