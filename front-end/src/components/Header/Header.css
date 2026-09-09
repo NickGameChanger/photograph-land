@@ -111,7 +111,7 @@ header .hero_btn:hover {
     }
 
     header {
-        background: url('../../assets/mob_background.jpeg');
+        background: url('../../assets/mob_background.jpg');
         width: auto;
         height: 100vw;
         min-height: 100vh;
