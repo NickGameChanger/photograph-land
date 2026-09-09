@@ -51,7 +51,7 @@
 #about .wrapper2 .photos_line {
     display: flex;
     align-items: flex-start;
-    gap: 12px;
+    gap: 24px;
     width: 100%;
     margin-top: 24px;
 }
@@ -305,7 +305,7 @@
     }
 
     #about .wrapper2 .photos_line {
-        margin: 12px var(--gutter) 0;
-        gap: 8px;
+        margin: 24px var(--gutter) 0;
+        gap: 20px;
     }
 }
