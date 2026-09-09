@@ -302,7 +302,7 @@ section h2 {
   color: var(--light-text-color-body-1, #F2EDE6);
   /* Heading/H2 Regular */
   font-family: "Cormorant Garamond", serif;
-  font-size: 43px;
+  font-size: clamp(24px, 2.4vw + 10px, 43px);
   font-style: normal;
   font-weight: 600;
   line-height: 120%;
@@ -438,7 +438,7 @@ section h2 {
   }
 
   section h2 {
-    font-size: 22px;
+    font-size: 24px;
   }
 
   /* шапка на телефоне не закреплена — якоря без поправки на неё */
