@@ -210,16 +210,18 @@
 
 /* --- телефон: горизонтальная лента вместо сетки --- */
 @media (max-width: 720px) {
-    /* лента выходит за боковые отступы, чтобы следующий кадр выглядывал у самого края */
+    /* лента на всю ширину экрана; активный кадр всегда по центру,
+       соседи выглядывают с обеих сторон */
     #portfolio .strip {
         display: flex;
         column-gap: 22px;
         overflow-x: auto;
         overflow-y: hidden;
         scroll-snap-type: x mandatory;
-        scroll-padding-left: var(--gutter);
         margin: 0 calc(-1 * var(--gutter));
-        padding: 0 var(--gutter);
+        /* поля по бокам = (экран − кадр) / 2, чтобы первый и последний
+           кадры тоже вставали ровно по центру */
+        padding: 0 11vw;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         touch-action: pan-x pan-y;
@@ -230,15 +232,10 @@
     }
 
     #portfolio .strip_cell {
-        flex: 0 0 78%;
+        flex: 0 0 78vw;
         aspect-ratio: 4 / 5;
-        scroll-snap-align: start;
+        scroll-snap-align: center;
         overflow: hidden;
-    }
-
-    /* последний кадр тоже должен доезжать до левого края */
-    #portfolio .strip_cell:last-child {
-        margin-right: var(--gutter);
     }
 
     #portfolio .strip_cell img {
