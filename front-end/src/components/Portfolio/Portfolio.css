@@ -38,7 +38,7 @@
 /* лента выходит за боковые поля до краёв окна, кадры прилипают к левому полю */
 #portfolio .strip {
     display: flex;
-    column-gap: 24px;
+    column-gap: 48px;
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
