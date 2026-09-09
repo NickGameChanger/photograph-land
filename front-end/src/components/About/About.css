@@ -65,21 +65,27 @@
     object-position: center;
 }
 
+/* карточка с внутренним полем: фото не прилипает к краю, а лежит на паспарту */
 #about .wrapper2 .first_block {
     margin: 0;
     display: flex;
-    align-items: stretch;
-    gap: 60px;
+    align-items: center;
+    gap: 64px;
+    padding: 48px;
     background: var(--light-system-background-primary, #1A1A1A);
 }
 
 #about .wrapper2 .first_block img {
-    width: 26%;
+    width: 32%;
     aspect-ratio: 4 / 5;
     height: auto;
     align-self: center;
     object-fit: cover;
     object-position: center;
+    /* тонкая рамка на небольшом расстоянии от кадра — как в паспарту */
+    outline: 1px solid rgba(255, 255, 255, 0.28);
+    outline-offset: 14px;
+    margin: 14px;
 }
 
 #about .wrapper2 .about_section {
@@ -87,7 +93,8 @@
     flex-direction: column;
     flex: 1;
     min-width: 0;
-    padding: 36px 40px 36px 0;
+    align-self: stretch;
+    padding: 0;
 }
 
 #about .wrapper2 .first_block .header_section {
@@ -279,12 +286,20 @@
         margin: 0 var(--gutter);
     }
 
+    #about .wrapper2 .first_block {
+        padding: 22px;
+        gap: 26px;
+    }
+
     #about .wrapper2 .first_block img {
+        width: calc(100% - 20px);
         aspect-ratio: 4 / 3;
+        outline-offset: 10px;
+        margin: 10px;
     }
 
     #about .wrapper2 .about_section {
-        padding: 22px 20px 26px;
+        padding: 0;
     }
 
     #about .wrapper2 .first_block .header_section h2 {
