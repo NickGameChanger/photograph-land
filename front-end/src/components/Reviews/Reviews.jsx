@@ -3,6 +3,7 @@ import "./Reviews.css"
 
 const reviews = [
   { name: 'Rezeda', text: 'Our second session with you, and this time we came as a family, with our son. I was worried he would not make it through the whole shoot — turns out I should have worried about my husband! Everything was easy and natural. You caught exactly the moments I wanted to keep: the glances, the smiles, a family portrait of pure happiness.' },
+  { name: 'Mari', note: 'Proposal session', text: 'The photos turned out absolutely wonderful — thank you so much! You captured the atmosphere beautifully.' },
   { name: 'Lana', text: 'Thank you from the bottom of my heart for this incredible work — you captured the atmosphere and the emotions, and I keep coming back to these photos again and again. I recommend you completely, and I am ready to shout about it at every step!' },
   { name: 'mariam', text: 'alina you are the best! <3 love your work and it was awesome experience!!' },
 ];
@@ -23,7 +24,10 @@ const Reviews = forwardRef((props, ref) => {
 
           {/* key заставляет React пересоздать узел — так отрабатывает появление */}
           <p className='review_text' key={`text-${active}`}>{review.text}</p>
-          <div className='review_name' key={`name-${active}`}>{review.name}</div>
+          <div className='review_name' key={`name-${active}`}>
+            {review.name}
+            {review.note && <span className='review_note'> · {review.note}</span>}
+          </div>
 
           {reviews.length > 1 && (
             <div className='review_nav'>
