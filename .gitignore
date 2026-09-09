@@ -8,3 +8,4 @@ __pycache__/
 bot.py
 # исходники фото — тяжёлые, в сборку не идут
 front-end/src/assets/originals/
+site-src.tgz
