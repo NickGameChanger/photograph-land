@@ -173,7 +173,8 @@
   display: none;
 }
 
-@media (max-width: 720px) {
+/* на планшете и телефоне вместо семи пунктов — гамбургер */
+@media (max-width: 1024px) {
 
   .navbar .navbar-2 {
     display: none;
